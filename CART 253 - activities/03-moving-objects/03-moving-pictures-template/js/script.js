@@ -1,8 +1,8 @@
 /**************************************************
-Template p5 project
-Pippin Barr
+Moving Objects
+Shandon Fleming
 
-Here is a description of this template p5 project.
+Experimenting with moving shapes
 **************************************************/
 
 // setup()
