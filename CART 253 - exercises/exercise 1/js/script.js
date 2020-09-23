@@ -32,7 +32,8 @@ let circle3 = {
 //
 // Description of setup() goes here.
 function setup() {
-
+  createCanvas(600,600);
+  noStroke();
 }
 
 // draw()
