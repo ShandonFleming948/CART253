@@ -46,4 +46,12 @@ function draw() {
 //circle1
   fill(circle1.fill,circle1.alpha);
   ellipse(circle1.x,circle1.y,circle1.size);
+
+//circle1
+  fill(circle2.fill,circle2.alpha);
+  ellipse(circle2.x,circle2.y,circle2.size);
+
+//circle1
+  fill(circle3.fill,circle3.alpha);
+  ellipse(circle3.x,circle3.y,circle3.size);
 }
