@@ -5,6 +5,7 @@ Shandon Fleming
 Brief: Create a program full of shapes that move, change size and color,
 and anything else you want to experiment with.
 **************************************************/
+//  Created variables for background (bg) and circles 1-3
 let bg = {
   r: 70,
   b: 217,
@@ -30,7 +31,7 @@ let circle3 = {
 }
 // setup()
 //
-// Description of setup() goes here.
+// Created the canvas
 function setup() {
   createCanvas(600,600);
   noStroke();
