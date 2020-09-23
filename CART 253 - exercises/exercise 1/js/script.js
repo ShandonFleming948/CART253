@@ -45,16 +45,19 @@ function draw() {
 
 //circle1
   circle1.y = mouseY
+  circle1.y = constrain(circle1.y,100,500);
   fill(circle1.fill);
   ellipse(circle1.x,circle1.y,circle1.size);
 
 //circle2
   circle2.y = mouseY
+  circle2.y = constrain(circle2.y,100,500);
   fill(circle2.fill);
   ellipse(circle2.x,circle2.y,circle2.size);
 
 //circle3
   circle3.y = mouseY
+  circle3.y = constrain(circle3.y,100,500);
   fill(circle3.fill);
   ellipse(circle3.x,circle3.y,circle3.size);
 }
