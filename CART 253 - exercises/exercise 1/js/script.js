@@ -1,8 +1,8 @@
 /**************************************************
-Template p5 project
-Pippin Barr
+Exercise 01: I like to move it move it!
+Shandon Fleming
 
-Here is a description of this template p5 project.
+Brief: Create a program full of shapes that move, change size and color, and anything else you want to experiment with.
 **************************************************/
 
 // setup()
