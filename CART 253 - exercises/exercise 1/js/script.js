@@ -10,25 +10,25 @@ let bg = {
   r: 70,
   b: 217,
   g: 224
-}
+};
 let circle1 = {
   x:100,
   y:500,
-  size:0,
-  fill:250,
-}
+  size:15,
+  fill:250
+};
 let circle2 = {
   x:300,
   y:500,
   size:0,
-  fill:250,
-}
+  fill:250
+};
 let circle3 = {
   x:500,
   y:500,
   size:0,
-  fill:250,
-}
+  fill:250
+};
 // setup()
 //
 // Created the canvas
@@ -42,4 +42,8 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
   background(bg.r,bg.g,bg.b);
+
+//circle1
+  fill(circle1.fill,circle1.alpha);
+  ellipse(circle1.x,circle1.y,circle1.size);
 }
