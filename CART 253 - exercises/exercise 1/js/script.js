@@ -11,13 +11,22 @@ let bg = {
   g: 0
 }
 let circle1 = {
-  
+  x:100,
+  y:500,
+  size:0,
+  fill:250,
 }
 let circle2 = {
-
+  x:300,
+  y:500,
+  size:0,
+  fill:250,
 }
 let circle3 = {
-
+  x:500,
+  y:500,
+  size:0,
+  fill:250,
 }
 // setup()
 //
