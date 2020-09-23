@@ -20,13 +20,13 @@ let circle1 = {
 let circle2 = {
   x:300,
   y:500,
-  size:0,
+  size:15,
   fill:250
 };
 let circle3 = {
   x:500,
   y:500,
-  size:0,
+  size:15,
   fill:250
 };
 // setup()
@@ -44,14 +44,17 @@ function draw() {
   background(bg.r,bg.g,bg.b);
 
 //circle1
-  fill(circle1.fill,circle1.alpha);
+  circle1.y = mouseY
+  fill(circle1.fill);
   ellipse(circle1.x,circle1.y,circle1.size);
 
-//circle1
-  fill(circle2.fill,circle2.alpha);
+//circle2
+  circle2.y = mouseY
+  fill(circle2.fill);
   ellipse(circle2.x,circle2.y,circle2.size);
 
-//circle1
-  fill(circle3.fill,circle3.alpha);
+//circle3
+  circle3.y = mouseY
+  fill(circle3.fill);
   ellipse(circle3.x,circle3.y,circle3.size);
 }
