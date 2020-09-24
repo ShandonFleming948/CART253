@@ -65,7 +65,8 @@ function draw() {
 //circle3
   circle3.y = mouseY
   circle3.x = mouseX
-  circle3.y = constrain(circle3.y,100,550);
+  circle3.mouseY = constrain(circle3.x,490,510);
+  circle3.y = constrain(circle3.y,10,590);
   circle3.x = constrain(circle3.x,490,510);
   fill(circle3.fill);
   circle3.y = circle3.y + circle3.speed;
