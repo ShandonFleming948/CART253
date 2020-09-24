@@ -42,13 +42,13 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
   background(bg.r,bg.g,bg.b);
-
+  bg.b = map(circle2.size,15,125,0,255);
 //circle1
   circle1.y = mouseY
   circle1.x = mouseX
   circle1.size = circle1.y - 100;
   circle1.size = constrain(circle1.size,0,100);
-  circle1.y = constrain(circle1.y,10,550);
+  circle1.y = constrain(circle1.y,10,520);
   circle1.x = constrain(circle1.x,90,110);
   fill(circle1.fill);
   ellipse(circle1.x,circle1.y,circle1.size);
@@ -56,9 +56,9 @@ function draw() {
 //circle2
   circle2.y = mouseY
   circle2.x = mouseX
-  circle2.size = circle2.y - 200;
+  circle2.size = circle1.y - 200;
   circle2.size = constrain(circle2.size,0,125);
-  circle2.y = constrain(circle2.y,10,550);
+  circle2.y = constrain(circle2.y,10,520);
   circle2.x = constrain(circle2.x,290,310);
   fill(circle2.fill);
   ellipse(circle2.x,circle2.y,circle2.size);
@@ -68,7 +68,7 @@ function draw() {
   circle3.x = mouseX
   circle3.size = circle3.y - 300;
   circle3.size = constrain(circle3.size,0,150);
-  circle3.y = constrain(circle3.y,10,550);
+  circle3.y = constrain(circle3.y,10,520);
   circle3.x = constrain(circle3.x,490,510);
   fill(circle3.fill);
   ellipse(circle3.x,circle3.y,circle3.size);
