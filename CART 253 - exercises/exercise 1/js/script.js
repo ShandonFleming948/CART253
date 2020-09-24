@@ -46,10 +46,8 @@ function draw() {
   background(bg.r,bg.g,bg.b);
 
 //circle1
-  circle1.y = random(0,600);
-  circle1.x = random(0,600);
   circle1.y = constrain(circle1.y,100,550);
-  circle1.y = constrain(circle1.x,100,550);
+  circle1.x = constrain(circle1.x,100,550);
   fill(circle1.fill);
   circle1.y = circle1.y + circle1.speed;
   ellipse(circle1.x,circle1.y,circle1.size);
@@ -63,9 +61,6 @@ function draw() {
   ellipse(circle2.x,circle2.y,circle2.size);
 
 //circle3
-  circle3.y = circle3.y + circle3.speed;
-  circle3.y = random(0,600);
-  circle3.x = random(0,600);
   circle3.y = constrain(circle3.y,100,550);
   circle3.x = constrain(circle3.x,100,550);
   fill(circle3.fill);
