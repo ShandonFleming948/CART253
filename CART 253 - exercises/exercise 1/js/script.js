@@ -22,6 +22,7 @@ let circle2 = {
   y:500,
   size:15,
   fill:250
+
 };
 let circle3 = {
   x:500,
