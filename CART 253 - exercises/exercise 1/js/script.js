@@ -40,7 +40,7 @@ function setup() {
 
 // draw()
 //
-// Description of draw() goes here.
+// Added the background color
 function draw() {
   background(bg.r,bg.g,bg.b);
   bg.b = map(circle2.size,15,125,0,255);
