@@ -1,3 +1,4 @@
-# Template p5 project
+CART 253-A / Exercise 1
+I like to move it move it!
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Create a program full of shapes that move, change size and color, and anything else you want to experiment with. 
