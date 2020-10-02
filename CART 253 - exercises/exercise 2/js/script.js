@@ -25,7 +25,11 @@ function preLoad() {
 }
 
 function setup() {
-  createCanvas(500,500);
+  createCanvas(windowWidth,windowHeight);
+
+  covid19.y = random(0,height);
+  covid19.vx = covid19.speed;
+
 }
 
 // draw()
@@ -34,5 +38,9 @@ function setup() {
 function draw() {
   background(0);
 
-  image()
+  covid19.x = covid19.x + covid19.vx;
+  covid19.y = covid19.y + covid19.vy;
+
+  fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
+  ellipse(covid19.x,covid19.y,covid19.size);
 }
