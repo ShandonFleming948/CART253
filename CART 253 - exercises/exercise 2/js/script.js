@@ -12,8 +12,8 @@ let covid19 = {
   vy: 0,
   speed: 10,
   fill: {
-    r: 250,
-    g: 0,
+    r: 200,
+    g: 100,
     b: 0
   }
 };
@@ -50,10 +50,12 @@ function draw() {
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
 
-  let d = dist(clownFace.x,clownFace.y,covid19.x,covid19.y);
-  if (d < covid19.size/2 + clownFace.size/2) {
-    noLoop();
-  }
+if (mouseY < circle.y) {
+  circle.vy = -5;
+}
+else {
+  circle.vy = 5;
+}
 
 //clownFace
   imageMode(CENTER);
