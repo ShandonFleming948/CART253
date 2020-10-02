@@ -2,6 +2,8 @@
 Shandon Fleming - CART 253-A
 Exercise 02 - Dodge-em
 
+//Save the clown from the bowling balls!
+
 **************************************************/
 //Covid19 variable
 let covid19 = {
@@ -10,7 +12,7 @@ let covid19 = {
   size: 200,
   vx: 0,
   vy: 0,
-  speed: 10,
+  speed: 6,
   fill: {
     r: 200,
     g: 100,
@@ -50,11 +52,12 @@ function draw() {
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
 
-if (mouseY < circle.y) {
-  circle.vy = -5;
+//clown conditional
+if (mouseY < covid19.y) {
+  covid19.vy = -covid19.speed;
 }
 else {
-  circle.vy = 5;
+  covid19.vy = covid19.speed;
 }
 
 //clownFace
