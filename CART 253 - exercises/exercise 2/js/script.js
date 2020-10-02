@@ -3,7 +3,7 @@ Shandon Fleming - CART 253-A
 Exercise 02 - Dodge-em
 
 **************************************************/
-
+//Covid19 variable
 let covid19 = {
   x: 0,
   y: 250,
@@ -18,6 +18,7 @@ let covid19 = {
   }
 };
 
+//clown face variable
 let clownFace;
 
 function preload() {
@@ -28,22 +29,24 @@ function preload() {
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
+//covid19 position and speed
   covid19.y = random(0,height);
   covid19.vx = covid19.speed;
 }
 
-// Description of draw() goes here.
+
 function draw() {
   background(0);
 
   covid19.x = covid19.x + covid19.vx;
   covid19.y = covid19.y + covid19.vy;
 
+//covid19 conditional
   if (covid19.x > width) {
     covid19.x = 0,
     covid19.y = random(0,height);
   };
-
+//covid 19 "circle"
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
 
