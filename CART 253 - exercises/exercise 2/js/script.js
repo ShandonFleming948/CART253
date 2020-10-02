@@ -50,6 +50,12 @@ function draw() {
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
 
+  let d = dist(clownFace.x,clownFace.y,covid19.x,covid19.y);
+  if (d < covid19.size/2 + clownFace.size/2) {
+    noLoop();
+  }
+
+//clownFace
   imageMode(CENTER);
   noCursor()
   image(clownFace,mouseX,mouseY,100,100);
