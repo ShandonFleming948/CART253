@@ -16,20 +16,19 @@ let covid19 = {
     g: 0,
     b: 0
   }
-}
+};
 
 let clownFace;
 
 function preLoad() {
   clownFace = loadImage("assets/images/clown.png");
-}
+
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
   covid19.y = random(0,height);
   covid19.vx = covid19.speed;
-
 }
 
 // draw()
@@ -40,6 +39,12 @@ function draw() {
 
   covid19.x = covid19.x + covid19.vx;
   covid19.y = covid19.y + covid19.vy;
+
+  if (covid19.x > width) {
+    covid19.x = 0,
+    covid19.y = random(0,height);
+  }
+
 
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
