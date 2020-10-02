@@ -50,5 +50,7 @@ function draw() {
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
 
+  imageMode(CENTER);
+  noCursor()
   image(clownFace,mouseX,mouseY,100,100);
 };
