@@ -1,13 +1,15 @@
 /**************************************************
-Template p5 project
-Pippin Barr
+Shandon Fleming - CART 253-A
+Exercise 02 - Dodge-em
 
-Here is a description of this template p5 project.
 **************************************************/
 
-// setup()
-//
-// Description of setup() goes here.
+let clownFace;
+
+function preLoad() {
+  clownFace = loadImage("assets/images/clown.png");
+}
+
 function setup() {
 
 }
