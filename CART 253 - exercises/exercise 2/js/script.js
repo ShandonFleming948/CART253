@@ -10,7 +10,7 @@ let covid19 = {
   size: 200,
   vx: 0,
   vy: 0,
-  speed: 5,
+  speed: 10,
   fill: {
     r: 250,
     g: 0,
@@ -20,8 +20,9 @@ let covid19 = {
 
 let clownFace;
 
-function preLoad() {
+function preload() {
   clownFace = loadImage("assets/images/clown.png");
+}
 
 
 function setup() {
@@ -31,8 +32,6 @@ function setup() {
   covid19.vx = covid19.speed;
 }
 
-// draw()
-//
 // Description of draw() goes here.
 function draw() {
   background(0);
@@ -43,9 +42,10 @@ function draw() {
   if (covid19.x > width) {
     covid19.x = 0,
     covid19.y = random(0,height);
-  }
-
+  };
 
   fill(covid19.fill.r,covid19.fill.g,covid19.fill.b);
   ellipse(covid19.x,covid19.y,covid19.size);
-}
+
+  image(clownFace,mouseX,mouseY);
+};
