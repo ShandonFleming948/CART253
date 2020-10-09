@@ -11,7 +11,7 @@ let circle1 = {
   size: 100,
   vx: 0,
   vy: 0,
-  speed: 3
+  speed: 5
 };
 
 let circle2 = {
@@ -66,6 +66,7 @@ function title() {
 }
 
 function simulation() {
+  handleInput()
   movement()
   offScreen()
   overlap()
@@ -90,6 +91,26 @@ function lose() {
   pop();
 }
 
+function handleInput() {
+  if (keyIsDown(LEFT_ARROW)) {
+    circle1.vx = -circle1.speed;
+  }
+  else if (keyIsDown(RIGHT_ARROW)) {
+    circle1.vx = circle1.speed;
+  }
+  else {
+    circle1.vx = 0;
+  }
+  if (keyIsDown(UP_ARROW)) {
+    circle1.vy = -circle1.speed;
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    circle1.vy = circle1.speed;
+  }
+  else {
+    circle1.vy = 0;
+  }
+}
 
 function movement() {
   //circle movement
