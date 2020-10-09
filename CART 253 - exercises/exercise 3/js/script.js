@@ -49,10 +49,10 @@ else if (state === `simulation`) {
   simulation();
 }
 else if (state === `win`) {
-  love();
+  win();
 }
 else if (state === `lose`) {
-
+  lose();
 }
 }
 
@@ -72,12 +72,21 @@ function simulation() {
   displayCircles()
 }
 
-function love() {
+function win() {
   push();
   textSize(24);
   fill(200,100,200);
   textAlign(CENTER,CENTER);
-  text(`Catch your solemate before it's too late!`,width/2,height/2);
+  text(`Congratulations, you found your solemate!`,width/2,height/2);
+  pop();
+}
+
+function lose() {
+  push();
+  textSize(24);
+  fill(200,100,200);
+  textAlign(CENTER,CENTER);
+  text(`You didn't meet your solemate :(`,width/2,height/2);
   pop();
 }
 
@@ -94,7 +103,7 @@ function movement() {
 function offScreen() {
   //circles have gone offscreen if...
     if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y > height || circle2.x < 0 || circle2.x > width || circle2.y < 0 || circle2.y > height) {
-      //you lost
+      state = `lose`;
     }
 }
 
@@ -102,7 +111,7 @@ function overlap() {
   //if circles overlap
   let d = dist(circle1.x,circle1.y,circle2.x,circle2.y);
   if (d < circle1.size/2 + circle2.size/2) {
-    //you win
+    state = `win`;
   }
 }
 
