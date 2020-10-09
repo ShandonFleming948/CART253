@@ -38,4 +38,14 @@ function setup() {
 
 function draw() {
   background(0);
+
+  circle1.x = circle1.x + circle1.vx;
+  circle1.y = circle1.y + circle1.vy;
+
+  circle2.x = circle2.x + circle2.vx;
+  circle2.y = circle2.y + circle2.vy;
+
+  ellipse(circle1.x,circle1.y,circle1.size);
+  ellipse(circle2.x,circle2.y,circle2.size);
+
 }
