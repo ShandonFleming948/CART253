@@ -1,7 +1,7 @@
 /**************************************************
 Exercise 3 - Shandon Fleming
 
-Use your keyboard to control one circle and catch circle2
+Use your keyboard to control circle1 and catch circle2
 **************************************************/
 //Circle 1 and 2
 let circle1 = {
