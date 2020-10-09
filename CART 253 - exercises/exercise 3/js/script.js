@@ -23,6 +23,8 @@ let circle2 = {
   speed: 3
 };
 
+let state = `simulation`;
+
 //circles are positioned apart from each other
 function setup() {
   createCanvas(500,500);
@@ -41,10 +43,15 @@ function setup() {
 function draw() {
   background(0);
 
+  simulation();
+}
+
+function simulation() {
   movement()
   offScreen()
   overlap()
   displayCircles()
+}
 
 
 function movement() {
