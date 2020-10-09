@@ -23,11 +23,13 @@ let circle2 = {
   speed: 3
 };
 
+//circles are positioned apart from each other
 function setup() {
   createCanvas(500,500);
   circle1.x = width / 3;
   circle2.x = 2 * width / 3;
 
+//circles will move in a random direction
   circle1.vx = random(-circle1.speed,circle1.speed);
   circle2.vx = random(-circle2.speed,circle2.speed);
 
