@@ -1,22 +1,33 @@
 "use strict";
 
 /**************************************************
-Template p5 project
-Pippin Barr
+Exercise 3 - Shandon Fleming
 
 Here is a description of this template p5 project.
 **************************************************/
+let circle1 = {
+  x: 0,
+  y: 250,
+  size: 100,
+  vx: 0,
+  vy: 0,
+  speed: 3
+};
 
-// setup()
-//
-// Description of setup() goes here.
+let circle2 = {
+  x: 0,
+  y: 250,
+  size: 100,
+  vx: 0,
+  vy: 0,
+  speed: 3
+};
+
 function setup() {
 
 }
 
-// draw()
-//
-// Description of draw() goes here.
+
 function draw() {
 
 }
