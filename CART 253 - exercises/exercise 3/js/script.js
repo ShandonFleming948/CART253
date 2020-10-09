@@ -6,7 +6,7 @@ Exercise 3 - Shandon Fleming
 Here is a description of this template p5 project.
 **************************************************/
 let circle1 = {
-  x: 0,
+  x: 150,
   y: 250,
   size: 100,
   vx: 0,
@@ -15,7 +15,7 @@ let circle1 = {
 };
 
 let circle2 = {
-  x: 0,
+  x: 350,
   y: 250,
   size: 100,
   vx: 0,
