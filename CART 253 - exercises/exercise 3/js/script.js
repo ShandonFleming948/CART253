@@ -49,7 +49,7 @@ else if (state === `simulation`) {
   simulation();
 }
 else if (state === `win`) {
-
+  love();
 }
 else if (state === `lose`) {
 
@@ -57,10 +57,12 @@ else if (state === `lose`) {
 }
 
 function title() {
+  push();
   textSize(24);
   fill(200,100,200);
   textAlign(CENTER,CENTER);
   text(`Catch your solemate before it's too late!`,width/2,height/2);
+  pop();
 }
 
 function simulation() {
@@ -68,6 +70,15 @@ function simulation() {
   offScreen()
   overlap()
   displayCircles()
+}
+
+function love() {
+  push();
+  textSize(24);
+  fill(200,100,200);
+  textAlign(CENTER,CENTER);
+  text(`Catch your solemate before it's too late!`,width/2,height/2);
+  pop();
 }
 
 
@@ -99,4 +110,10 @@ function displayCircles() {
   //display the circles
     ellipse(circle1.x,circle1.y,circle1.size);
     ellipse(circle2.x,circle2.y,circle2.size);
+}
+
+function mousePressed() {
+  if (state === `title`) {
+    state = `simulation`;
+  }
 }
