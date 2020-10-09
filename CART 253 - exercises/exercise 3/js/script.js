@@ -41,20 +41,40 @@ function setup() {
 function draw() {
   background(0);
 
-//circle movement
-  circle1.x = circle1.x + circle1.vx;
-  circle1.y = circle1.y + circle1.vy;
+  movement()
+  offScreen()
+  overlap()
+  displayCircles()
 
-  circle2.x = circle2.x + circle2.vx;
-  circle2.y = circle2.y + circle2.vy;
 
-//circles have gone offscreen if...
-  if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y > height || circle2.x < 0 || circle2.x > width || circle2.y < 0 || circle2.y > height) {
-    
+function movement() {
+  //circle movement
+    circle1.x = circle1.x + circle1.vx;
+    circle1.y = circle1.y + circle1.vy;
+
+    circle2.x = circle2.x + circle2.vx;
+    circle2.y = circle2.y + circle2.vy;
+}
+
+function offScreen() {
+  //circles have gone offscreen if...
+    if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y > height || circle2.x < 0 || circle2.x > width || circle2.y < 0 || circle2.y > height) {
+      //you lost
+    }
+}
+
+function overlap() {
+  //if circles overlap
+  let d = dist(circle1.x,circle1.y,circle2.x,circle2.y);
+  if (d < circle1.size/2 + circle2.size/2) {
+    //you win
   }
+}
 
-//display the circles
-  ellipse(circle1.x,circle1.y,circle1.size);
-  ellipse(circle2.x,circle2.y,circle2.size);
+function displayCircles() {
+  //display the circles
+    ellipse(circle1.x,circle1.y,circle1.size);
+    ellipse(circle2.x,circle2.y,circle2.size);
+}
 
 }
