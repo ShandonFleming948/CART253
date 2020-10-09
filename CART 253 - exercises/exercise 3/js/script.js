@@ -48,6 +48,11 @@ function draw() {
   circle2.x = circle2.x + circle2.vx;
   circle2.y = circle2.y + circle2.vy;
 
+//circles have gone offscreen if...
+  if (circle1.x < 0 || circle1.x > width || circle1.y < 0 || circle1.y > height || circle2.x < 0 || circle2.x > width || circle2.y < 0 || circle2.y > height) {
+    
+  }
+
 //display the circles
   ellipse(circle1.x,circle1.y,circle1.size);
   ellipse(circle2.x,circle2.y,circle2.size);
