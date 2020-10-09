@@ -1,10 +1,9 @@
-"use strict";
-
 /**************************************************
 Exercise 3 - Shandon Fleming
 
-Here is a description of this template p5 project.
+Use your keyboard to control one circle and catch circle2
 **************************************************/
+//Circle 1 and 2
 let circle1 = {
   x: 150,
   y: 250,
@@ -61,7 +60,7 @@ function title() {
   textSize(24);
   fill(200,100,200);
   textAlign(CENTER,CENTER);
-  text(`Catch your solemate before it's too late!`,width/2,height/2);
+  text(`Catch your soulmate before it's too late!`,width/2,height/2);
   pop();
 }
 
@@ -78,7 +77,7 @@ function win() {
   textSize(24);
   fill(200,100,200);
   textAlign(CENTER,CENTER);
-  text(`Congratulations, you found your solemate!`,width/2,height/2);
+  text(`Congratulations, you found your soulmate!`,width/2,height/2);
   pop();
 }
 
@@ -87,10 +86,11 @@ function lose() {
   textSize(24);
   fill(200,100,200);
   textAlign(CENTER,CENTER);
-  text(`You didn't meet your solemate :(`,width/2,height/2);
+  text(`You didn't meet your soulmate :(`,width/2,height/2);
   pop();
 }
 
+//keyboard controls
 function handleInput() {
   if (keyIsDown(LEFT_ARROW)) {
     circle1.vx = -circle1.speed;
@@ -142,6 +142,7 @@ function displayCircles() {
     ellipse(circle2.x,circle2.y,circle2.size);
 }
 
+//when the mouse is clicked
 function mousePressed() {
   if (state === `title`) {
     state = `simulation`;
