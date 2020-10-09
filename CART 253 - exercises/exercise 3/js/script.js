@@ -23,7 +23,7 @@ let circle2 = {
   speed: 3
 };
 
-let state = `simulation`;
+let state = `simulation`; //names can be: title, simulation, win, lose
 
 //circles are positioned apart from each other
 function setup() {
@@ -43,7 +43,19 @@ function setup() {
 function draw() {
   background(0);
 
+if (state === `title`) {
+
+}
+else if (state === `simulation`) {
   simulation();
+}
+else if (state === `win`) {
+
+}
+else if (state === `lose`) {
+  
+}
+
 }
 
 function simulation() {
