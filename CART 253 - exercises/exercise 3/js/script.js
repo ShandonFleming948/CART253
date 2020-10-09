@@ -23,7 +23,7 @@ let circle2 = {
   speed: 3
 };
 
-let state = `simulation`; //names can be: title, simulation, win, lose
+let state = `title`; //names can be: title, simulation, win, lose
 
 //circles are positioned apart from each other
 function setup() {
@@ -43,7 +43,7 @@ function draw() {
   background(0);
 
 if (state === `title`) {
-
+  title();
 }
 else if (state === `simulation`) {
   simulation();
@@ -54,7 +54,13 @@ else if (state === `win`) {
 else if (state === `lose`) {
 
 }
+}
 
+function title() {
+  textSize(24);
+  fill(200,100,200);
+  textAlign(CENTER,CENTER);
+  text(`Catch your solemate before it's too late!`,width/2,height/2);
 }
 
 function simulation() {
