@@ -43,6 +43,15 @@ let circle4 = {
   speed:2
 }
 
+let circle5 = {
+  x:400,
+  y:50,
+  size:50,
+  vx:1,
+  vy:1,
+  speed:2
+}
+
 
 function setup() {
   createCanvas(1000,600);
