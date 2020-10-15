@@ -214,8 +214,23 @@ function draw() {
     circle3.speed = -circle3.speed
     }
 
+
   circle4.x = constrain(circle4.x,50,950);
   circle4.y = constrain(circle4.y,50,550);
+
+
+  circle5.x = circle5.x + circle5.speed;
+  circle5.x = constrain(circle5.x,250,550);
+    if (circle5.x < 549) {
+    circle5.speed = circle5.speed
+    }
+
+    if (circle5.x > 549) {
+    circle5.speed = -circle5.speed
+    }
+    if (circle5.x < 251) {
+    circle5.speed = -circle5.speed
+    }
 
 
   noStroke()
@@ -223,6 +238,7 @@ function draw() {
   ellipse(circle1.x,circle1.y,circle1.size);
   ellipse(circle2.x,circle2.y,circle2.size);
   ellipse(circle3.x,circle3.y,circle3.size);
+  ellipse(circle5.x,circle5.y,circle5.size);
 
   noStroke()
   fill(250,250,250);
