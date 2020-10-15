@@ -60,6 +60,30 @@ function setup() {
 function draw() {
   background(52,177,235);
 
+  handleInput();
+
+function handleInput() {
+  if (keyIsDown(LEFT_ARROW)) {
+    circle4.vx = -circle4.speed;
+  }
+  else if (keyIsDown(RIGHT_ARROW)) {
+    circle4.vx == circle4.speed;
+  }
+  else {
+    circle4.vx = 0;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    circle4.vy = -circle4.speed;
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    circle4.vy = circle4.speed;
+  }
+  else {
+    circle4.vy = 0;
+  }
+}
+
   line(0,500,100,500);
   stroke(0);
   strokeWeight(10);
@@ -206,6 +230,8 @@ function draw() {
     if (circle3.x < 551) {
     circle3.speed = -circle3.speed
     }
+
+
 
   noStroke()
   fill(240,0,0);
