@@ -63,4 +63,60 @@ function draw() {
   line(400,100,500,100);
   stroke(0);
   strokeWeight(10);
+
+  line(500,100,500,300);
+  stroke(0);
+  strokeWeight(10);
+
+  line(400,300,600,300);
+  stroke(0);
+  strokeWeight(10);
+
+  line(500,300,500,500);
+  stroke(0);
+  strokeWeight(10);
+
+  line(500,500,600,500);
+  stroke(0);
+  strokeWeight(10);
+
+  line(500,400,800,400);
+  stroke(0);
+  strokeWeight(10);
+
+  line(700,400,700,600);
+  stroke(0);
+  strokeWeight(10);
+
+  line(800,500,900,500);
+  stroke(0);
+  strokeWeight(10);
+
+  line(900,0,900,500);
+  stroke(0);
+  strokeWeight(10);
+
+  line(800,300,900,300);
+  stroke(0);
+  strokeWeight(10);
+
+  line(800,200,800,300);
+  stroke(0);
+  strokeWeight(10);
+
+  line(600,200,800,200);
+  stroke(0);
+  strokeWeight(10);
+
+  line(700,100,700,300);
+  stroke(0);
+  strokeWeight(10);
+
+  line(600,0,600,100);
+  stroke(0);
+  strokeWeight(10);
+
+  line(800,0,800,100);
+  stroke(0);
+  strokeWeight(10);
 }
