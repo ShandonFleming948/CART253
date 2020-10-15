@@ -7,11 +7,38 @@ Pippin Barr
 Here is a description of this template p5 project.
 **************************************************/
 
-// setup()
-//
-// Description of setup() goes here.
+let circle1 = {
+  x:300,
+  y:550,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2
+}
+
+//let circle2 = {
+//  x:
+//  y:
+//  size:
+//  vx:
+//  vy:
+//  speed:
+//}
+
+//let circle3 = {
+//  x:
+//  y:
+//  size:
+//  vx:
+//  vy:
+//  speed:
+//}
+
+
 function setup() {
   createCanvas(1000,600);
+
+  //circle1.vx = (-circle1.speed,circle1.speed);
 }
 
 // draw()
