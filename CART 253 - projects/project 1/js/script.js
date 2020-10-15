@@ -13,7 +13,7 @@ let circle1 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1.5
+  speed:2.2
 }
 
 let circle2 = {
@@ -22,7 +22,7 @@ let circle2 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1.5
+  speed:2.2
 }
 
 let circle3 = {
@@ -31,7 +31,7 @@ let circle3 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1.5
+  speed:2.2
 }
 
 let circle4 = {
@@ -49,7 +49,7 @@ let circle5 = {
   size:50,
   vx:1,
   vy:1,
-  speed:2
+  speed:2.2
 }
 
 let state = `simulation`; //can be title, simulation, win, lose
@@ -202,24 +202,24 @@ function draw() {
     circle2.speed = -circle2.speed
     }
 
-  //circle3.x = circle3.x + circle3.speed;
-  //circle3.x = constrain(circle3.x,550,650);
-    //if (circle3.x < 649) {
-    //circle3.speed = circle3.speed
-    //}
-    //if (circle3.x > 649) {
-    //circle3.speed = -circle3.speed
-    //}
-    //if (circle3.x < 551) {
-    //circle3.speed = -circle3.speed
-    //}
+  circle3.x = circle3.x + circle3.speed;
+  circle3.x = constrain(circle3.x,550,850);
+    if (circle3.x < 849) {
+    circle3.speed = circle3.speed
+    }
+    if (circle3.x > 849) {
+    circle3.speed = -circle3.speed
+    }
+    if (circle3.x < 551) {
+    circle3.speed = -circle3.speed
+    }
 
-      if (circle4.x > 650) {
-        circle3.vx = 1;
-      }
-      else {
-        circle3.vx = 0;
-      }
+      //if (circle4.x > 650) {
+        //circle3.vx = 1;
+      //}
+      //else {
+        //circle3.vx = 0;
+      //}
 
 
   circle4.x = constrain(circle4.x,50,950);
