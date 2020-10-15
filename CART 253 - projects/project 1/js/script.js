@@ -119,4 +119,7 @@ function draw() {
   line(800,0,800,100);
   stroke(0);
   strokeWeight(10);
+
+  square(900,0,100);
+  fill(31,237,103);
 }
