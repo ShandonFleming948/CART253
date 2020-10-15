@@ -38,7 +38,7 @@ let circle1 = {
 function setup() {
   createCanvas(1000,600);
 
-  //circle1.vx = (-circle1.speed,circle1.speed);
+  circle1.vx = (-circle1.speed,circle1.speed);
 }
 
 // draw()
@@ -147,6 +147,15 @@ function draw() {
   stroke(0);
   strokeWeight(10);
 
+  push()
   square(900,0,100);
   fill(31,237,103);
+  pop()
+
+  noStroke()
+  ellipse(circle1.x,circle1.y,circle1.size);
+  //ellipse(circle2.x,circle2.y,circle2.size);
+  //ellipse(circle3.x,circle3.y,circle3.size);
+
+
 }
