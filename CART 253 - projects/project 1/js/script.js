@@ -9,6 +9,33 @@ Here is a description of this template p5 project.
 
 let circle1 = {
   x:300,
+  y:450,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2
+}
+
+let circle2 = {
+  x:50,
+  y:150,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2
+}
+
+let circle3 = {
+  x:600,
+  y:350,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2
+}
+
+let circle4 = {
+  x:50,
   y:550,
   size:50,
   vx:0,
@@ -16,29 +43,15 @@ let circle1 = {
   speed:2
 }
 
-//let circle2 = {
-//  x:
-//  y:
-//  size:
-//  vx:
-//  vy:
-//  speed:
-//}
-
-//let circle3 = {
-//  x:
-//  y:
-//  size:
-//  vx:
-//  vy:
-//  speed:
-//}
-
 
 function setup() {
   createCanvas(1000,600);
 
   circle1.vx = (-circle1.speed,circle1.speed);
+  circle2.vy = (-circle2.speed,circle2.speed);
+  circle3.vx = (-circle3.speed,circle3.speed);
+
+
 }
 
 // draw()
@@ -46,6 +59,10 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
   background(52,177,235);
+
+  line(0,500,100,500);
+  stroke(0);
+  strokeWeight(10);
 
   line(0,500,100,500);
   stroke(0);
@@ -147,15 +164,30 @@ function draw() {
   stroke(0);
   strokeWeight(10);
 
-  push()
-  square(900,0,100);
   fill(31,237,103);
-  pop()
+  square(900,0,100);
+
+  circle1.x = circle1.x + circle1.vx;
+  circle1.x = constrain(circle1.x,250,350);
+    if (circle1.x < 349) {
+      circle1.speed = speed
+    }
+
+  circle2.y = circle2.y + circle2.vy;
+  circle2.y = constrain(circle2.y,50,250);
+
+  circle3.x = circle3.x + circle3.vx;
+  circle3.x = constrain(circle3.x,550,650);
 
   noStroke()
+  fill(240,0,0);
   ellipse(circle1.x,circle1.y,circle1.size);
-  //ellipse(circle2.x,circle2.y,circle2.size);
-  //ellipse(circle3.x,circle3.y,circle3.size);
+  ellipse(circle2.x,circle2.y,circle2.size);
+  ellipse(circle3.x,circle3.y,circle3.size);
+
+  noStroke()
+  fill(250,250,250);
+  ellipse(circle4.x,circle4.y,circle4.size);
 
 
 }
