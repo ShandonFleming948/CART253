@@ -13,7 +13,7 @@ let circle1 = {
   size:50,
   vx:0,
   vy:0,
-  speed:2
+  speed:1
 }
 
 let circle2 = {
@@ -22,7 +22,7 @@ let circle2 = {
   size:50,
   vx:0,
   vy:0,
-  speed:2
+  speed:1
 }
 
 let circle3 = {
@@ -31,7 +31,7 @@ let circle3 = {
   size:50,
   vx:0,
   vy:0,
-  speed:2
+  speed:1
 }
 
 let circle4 = {
@@ -167,17 +167,45 @@ function draw() {
   fill(31,237,103);
   square(900,0,100);
 
-  circle1.x = circle1.x + circle1.vx;
+  circle1.x = circle1.x + circle1.speed;
   circle1.x = constrain(circle1.x,250,350);
     if (circle1.x < 349) {
-      circle1.speed = speed
+      circle1.speed = circle1.speed
     }
 
-  circle2.y = circle2.y + circle2.vy;
-  circle2.y = constrain(circle2.y,50,250);
+    if (circle1.x > 349) {
+      circle1.speed = -circle1.speed
+    }
+    if (circle1.x < 251) {
+      circle1.speed = -circle1.speed
+    }
 
-  circle3.x = circle3.x + circle3.vx;
+
+  circle2.y = circle2.y + circle2.speed;
+  circle2.y = constrain(circle2.y,50,250);
+    if (circle2.y < 249) {
+    circle2.speed = circle2.speed
+    }
+
+    if (circle2.y > 249) {
+    circle2.speed = -circle2.speed
+    }
+    if (circle2.y < 51) {
+    circle2.speed = -circle2.speed
+    }
+
+  circle3.x = circle3.x + circle3.speed;
   circle3.x = constrain(circle3.x,550,650);
+    if (circle3.x < 649) {
+    circle3.speed = circle3.speed
+    }
+
+    if (circle3.x > 649) {
+    circle3.speed = -circle3.speed
+    }
+    if (circle3.x < 551) {
+    circle3.speed = -circle3.speed
+    }
 
   noStroke()
   fill(240,0,0);
