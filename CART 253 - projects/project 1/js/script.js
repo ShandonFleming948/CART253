@@ -13,7 +13,7 @@ let circle1 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1
+  speed:1.5
 }
 
 let circle2 = {
@@ -22,7 +22,7 @@ let circle2 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1
+  speed:1.5
 }
 
 let circle3 = {
@@ -31,27 +31,21 @@ let circle3 = {
   size:50,
   vx:0,
   vy:0,
-  speed:1
+  speed:1.5
 }
 
 let circle4 = {
   x:50,
   y:550,
   size:50,
-  vx:0,
-  vy:0,
+  vx:1,
+  vy:1,
   speed:2
 }
 
 
 function setup() {
   createCanvas(1000,600);
-
-  circle1.vx = (-circle1.speed,circle1.speed);
-  circle2.vy = (-circle2.speed,circle2.speed);
-  circle3.vx = (-circle3.speed,circle3.speed);
-
-
 }
 
 // draw()
@@ -61,28 +55,8 @@ function draw() {
   background(52,177,235);
 
   handleInput();
-
-function handleInput() {
-  if (keyIsDown(LEFT_ARROW)) {
-    circle4.vx = -circle4.speed;
-  }
-  else if (keyIsDown(RIGHT_ARROW)) {
-    circle4.vx == circle4.speed;
-  }
-  else {
-    circle4.vx = 0;
-  }
-
-  if (keyIsDown(UP_ARROW)) {
-    circle4.vy = -circle4.speed;
-  }
-  else if (keyIsDown(DOWN_ARROW)) {
-    circle4.vy = circle4.speed;
-  }
-  else {
-    circle4.vy = 0;
-  }
-}
+  move();
+  display();
 
   line(0,500,100,500);
   stroke(0);
@@ -231,6 +205,8 @@ function handleInput() {
     circle3.speed = -circle3.speed
     }
 
+  circle4.x = constrain(circle4.x,50,950);
+  circle4.y = constrain(circle4.y,50,550);
 
 
   noStroke()
@@ -242,6 +218,35 @@ function handleInput() {
   noStroke()
   fill(250,250,250);
   ellipse(circle4.x,circle4.y,circle4.size);
+}
 
+function handleInput() {
+  if (keyIsDown(LEFT_ARROW)) {
+    circle4.vx = -circle4.speed;
+  }
+  else if (keyIsDown(RIGHT_ARROW)) {
+    circle4.vx = circle4.speed;
+  }
+  else {
+    circle4.vx = 0;
+  }
 
+  if (keyIsDown(UP_ARROW)) {
+    circle4.vy = -circle4.speed;
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    circle4.vy = circle4.speed;
+  }
+  else {
+    circle4.vy = 0;
+  }
+}
+
+function move() {
+  circle4.x = circle4.x + circle4.vx;
+  circle4.y = circle4.y + circle4.vy;
+}
+
+function display() {
+  ellipse(circle4.x,circle4.y,circle4.size);
 }
