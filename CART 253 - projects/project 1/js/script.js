@@ -52,6 +52,7 @@ let circle5 = {
   speed:2
 }
 
+let state = `simulation`; //can be title, simulation, win, lose
 
 function setup() {
   createCanvas(1000,600);
@@ -63,9 +64,9 @@ function setup() {
 function draw() {
   background(52,177,235);
 
-  handleInput();
-  move();
-  display();
+    handleInput();
+    move();
+    display();
 
   line(0,500,100,500);
   stroke(0);
@@ -250,6 +251,7 @@ function draw() {
   fill(250,250,250);
   ellipse(circle4.x,circle4.y,circle4.size);
 }
+
 
 function handleInput() {
   if (keyIsDown(LEFT_ARROW)) {
