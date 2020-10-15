@@ -287,20 +287,20 @@ function display() {
 }
 
 function checkOverlap() {
-  //let d = dist(circle1.x,circle1.y,circle4.x,circle4.y);
-  //if (d < circle1.size/2 + circle4.size/2) {
-    //lose
-  //}
-  //let d = dist(circle2.x,circle2.y,circle4.x,circle4.y);
-  //if (d < circle2.size/2 + circle4.size/2) {
-    //lose
-  //}
-  //let d = dist(circle3.x,circle3.y,circle4.x,circle4.y);
-  //if (d < circle3.size/2 + circle4.size/2) {
-    //lose
-  //}
-  //let d = dist(circle5.x,circle5.y,circle4.x,circle4.y);
-  //if (d < circle5.size/2 + circle4.size/2) {
-    //lose
-  //}
+  let d = dist(circle1.x,circle1.y,circle4.x,circle4.y);
+  if (d < circle1.size/2 + circle4.size/2) {
+    console.log (`you lose`);
+  }
+   d = dist(circle2.x,circle2.y,circle4.x,circle4.y);
+  if (d < circle2.size/2 + circle4.size/2) {
+    console.log (`you lose`);
+  }
+   d = dist(circle3.x,circle3.y,circle4.x,circle4.y);
+  if (d < circle3.size/2 + circle4.size/2) {
+    console.log (`you lose`);
+  }
+   d = dist(circle5.x,circle5.y,circle4.x,circle4.y);
+  if (d < circle5.size/2 + circle4.size/2) {
+    console.log (`you lose`);
+  }
 }
