@@ -52,24 +52,44 @@ let circle5 = {
   speed:2.7
 }
 
-let state = `simulation`; //can be title, simulation, win, lose
+let state = `title`; //can be title, simulation, win, lose
 
 function setup() {
   createCanvas(1000,600);
 }
 
-// draw()
-//
-// Description of draw() goes here.
+
 function draw() {
   background(52,177,235);
 
-    handleInput();
-    move();
-    display();
-    checkOverlap();
+if (state === `title`) {
+  title();
+}
+else if (state === `simulation`) {
+  simulation();
+}
+else if (state === `win`) {
+
+}
+else if (state === `lose`) {
+
 }
 
+}
+
+function title() {
+  textSize(24);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`Pass through the maze and reach the green square without getting caught by the red circles`,width/2,height/2);
+}
+
+function simulation() {
+  handleInput();
+  move();
+  display();
+  checkOverlap();
+}
 
 function handleInput() {
   if (keyIsDown(LEFT_ARROW)) {
@@ -136,13 +156,6 @@ function move() {
     if (circle3.x < 551) {
     circle3.speed = -circle3.speed
     }
-
-      //if (circle4.x > 650) {
-        //circle3.vx = 1;
-      //}
-      //else {
-        //circle3.vx = 0;
-      //}
 
 
   circleUser.x = constrain(circleUser.x,50,950);
@@ -301,5 +314,11 @@ function checkOverlap() {
    d = dist(circle5.x,circle5.y,circleUser.x,circleUser.y);
   if (d < circle5.size/2 + circleUser.size/2) {
     console.log (`you lose`);
+  }
+}
+
+function mousePressed() {
+  if (state ===`title`) {
+    state = `simulation`;
   }
 }
