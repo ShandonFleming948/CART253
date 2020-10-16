@@ -52,6 +52,206 @@ let circle5 = {
   speed:2.7
 }
 
+let wall1 = {
+  x: 0,
+  y: 500,
+  x2: 100,
+  y2: 500,
+  thickness: 10
+}
+
+let wall2 = {
+  x: 200,
+  y: 400,
+  x2: 200,
+  y2: 600,
+  thickness: 10
+}
+
+let wall3 = {
+  x: 100,
+  y: 400,
+  x2: 200,
+  y2: 400,
+  thickness: 10
+}
+
+let wall4 = {
+  x: 0,
+  y: 300,
+  x2: 300,
+  y2: 300,
+  thickness: 10
+}
+
+let wall5 = {
+  x: 300,
+  y: 300,
+  x2: 300,
+  y2: 400,
+  thickness: 10
+}
+
+let wall6 = {
+  x: 400,
+  y: 400,
+  x2: 400,
+  y2: 600,
+  thickness: 10
+}
+
+let wall7 = {
+  x: 100,
+  y: 200,
+  x2: 400,
+  y2: 200,
+  thickness: 10
+}
+
+let wall8 = {
+  x: 200,
+  y: 0,
+  x2: 200,
+  y2: 100,
+  thickness: 10
+}
+
+let wall9 = {
+  x: 300,
+  y: 100,
+  x2: 300,
+  y2: 200,
+  thickness: 10
+}
+
+let wall10 = {
+  x: 400,
+  y: 100,
+  x2: 400,
+  y2: 200,
+  thickness: 10
+}
+
+let wall11 = {
+  x: 400,
+  y: 100,
+  x2: 500,
+  y2: 100,
+  thickness: 10
+}
+
+let wall12 = {
+  x: 500,
+  y: 100,
+  x2: 500,
+  y2: 300,
+  thickness: 10
+}
+
+let wall13 = {
+  x: 400,
+  y: 300,
+  x2: 600,
+  y2: 300,
+  thickness: 10
+}
+
+let wall14 = {
+  x: 500,
+  y: 300,
+  x2: 500,
+  y2: 500,
+  thickness: 10
+}
+
+let wall15 = {
+  x: 500,
+  y: 500,
+  x2: 600,
+  y2: 500,
+  thickness: 10
+}
+
+let wall16 = {
+  x: 500,
+  y: 400,
+  x2: 800,
+  y2: 400,
+  thickness: 10
+}
+
+let wall17 = {
+  x: 700,
+  y: 400,
+  x2: 700,
+  y2: 600,
+  thickness: 10
+}
+
+let wall18 = {
+  x: 800,
+  y: 500,
+  x2: 900,
+  y2: 500,
+  thickness: 10
+}
+
+let wall19 = {
+  x: 900,
+  y: 0,
+  x2: 900,
+  y2: 500,
+  thickness: 10
+}
+
+let wall20 = {
+  x: 800,
+  y: 300,
+  x2: 900,
+  y2: 300,
+  thickness: 10
+}
+
+let wall21 = {
+  x: 800,
+  y: 200,
+  x2: 800,
+  y2: 300,
+  thickness: 10
+}
+
+let wall22 = {
+  x: 600,
+  y: 200,
+  x2: 800,
+  y2: 200,
+  thickness: 10
+}
+
+let wall23 = {
+  x: 700,
+  y: 100,
+  x2: 700,
+  y2: 300,
+  thickness: 10
+}
+
+let wall24 = {
+  x: 600,
+  y: 0,
+  x2: 600,
+  y2: 100,
+  thickness: 10
+}
+
+let wall25 = {
+  x: 800,
+  y: 0,
+  x2: 800,
+  y2: 100,
+  thickness: 10
+}
+
 let state = `simulation`; //can be title, simulation, win, lose
 
 function setup() {
