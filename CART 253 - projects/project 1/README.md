@@ -1,3 +1,3 @@
-# Template p5 project
+CART 253 - Project 1
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+Use the keyboard arrow controls to guide the white circle through the maze to the green square without getting caught by the red circles.
