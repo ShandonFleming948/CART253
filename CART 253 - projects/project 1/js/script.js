@@ -22,7 +22,7 @@ let circle2 = {
   size:50,
   vx:0,
   vy:0,
-  speed:2.2
+  speed:2.5
 }
 
 let circle3 = {
@@ -31,7 +31,7 @@ let circle3 = {
   size:50,
   vx:0,
   vy:0,
-  speed:2.2
+  speed:3.5
 }
 
 let circle4 = {
@@ -49,7 +49,7 @@ let circle5 = {
   size:50,
   vx:1,
   vy:1,
-  speed:2.2
+  speed:2.7
 }
 
 let state = `simulation`; //can be title, simulation, win, lose
