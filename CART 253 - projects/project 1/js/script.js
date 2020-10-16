@@ -69,19 +69,21 @@ else if (state === `simulation`) {
   simulation();
 }
 else if (state === `win`) {
-
+  win();
 }
 else if (state === `lose`) {
-
+  lose();
 }
 
 }
 
 function title() {
+  push();
   textSize(24);
   fill(0,0,250);
   textAlign(CENTER,CENTER);
   text(`Pass through the maze and reach the green square without getting caught by the red circles`,width/2,height/2);
+  pop();
 }
 
 function simulation() {
@@ -89,6 +91,24 @@ function simulation() {
   move();
   display();
   checkOverlap();
+}
+
+function lose() {
+  push();
+  textSize(64);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`YOU GOT CAUGHT :(`,width/2,height/2);
+  pop();
+}
+
+function win() {
+  push();
+  textSize(60);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`CONGRATULATIONS, YOU MADE IT :)`,width/2,height/2);
+  pop();
 }
 
 function handleInput() {
@@ -301,19 +321,23 @@ function display() {
 function checkOverlap() {
   let d = dist(circle1.x,circle1.y,circleUser.x,circleUser.y);
   if (d < circle1.size/2 + circleUser.size/2) {
-    console.log (`you lose`);
+    state = `lose`;
   }
    d = dist(circle2.x,circle2.y,circleUser.x,circleUser.y);
   if (d < circle2.size/2 + circleUser.size/2) {
-    console.log (`you lose`);
+    state = `lose`;
   }
    d = dist(circle3.x,circle3.y,circleUser.x,circleUser.y);
   if (d < circle3.size/2 + circleUser.size/2) {
-    console.log (`you lose`);
+    state = `lose`;
   }
    d = dist(circle5.x,circle5.y,circleUser.x,circleUser.y);
   if (d < circle5.size/2 + circleUser.size/2) {
-    console.log (`you lose`);
+    state = `lose`;
+  }
+
+  if (circleUser.x === 950, circleUser.y === 50) {
+    state = `win`;
   }
 }
 
