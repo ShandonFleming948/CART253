@@ -182,7 +182,6 @@ function move() {
   circleUser.y = constrain(circleUser.y,51,550);
     if (circleUser.x > 949) {
       circleUser.y = constrain(circleUser.y,50,550);
-
     }
 
 
@@ -339,10 +338,11 @@ function checkOverlap() {
   if (d < circle5.size/2 + circleUser.size/2) {
     state = `lose`;
   }
-
-  if (circleUser.x,circleUser.y === (950,50)) {
-    state = `win`;
-  }
+  d = dist(950,50,circleUser.x,circleUser.y);
+ if (d <  + circleUser.size/2) {
+   state = `win`;
+ }
+  
 }
 
 function mousePressed() {
