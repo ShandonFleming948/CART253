@@ -1,12 +1,14 @@
 "use strict";
 
 /**************************************************
-Template p5 project
-Pippin Barr
+Project 1
+Shandon Fleming\
+CART 253
 
-Here is a description of this template p5 project.
+-use the keyboard arrows to guide your circle through a maze without getting caught
 **************************************************/
 
+//circles 1-5
 let circle1 = {
   x:300,
   y:450,
@@ -62,6 +64,7 @@ function setup() {
 function draw() {
   background(52,177,235);
 
+//4 states
 if (state === `title`) {
   title();
 }
@@ -77,6 +80,7 @@ else if (state === `lose`) {
 
 }
 
+//display title
 function title() {
   push();
   textSize(24);
@@ -86,6 +90,7 @@ function title() {
   pop();
 }
 
+//run simulation
 function simulation() {
   handleInput();
   move();
@@ -93,6 +98,7 @@ function simulation() {
   checkOverlap();
 }
 
+//display "lose" page if user touches a red circle
 function lose() {
   push();
   textSize(64);
@@ -102,6 +108,7 @@ function lose() {
   pop();
 }
 
+//display "win" page if user makes it to the green square
 function win() {
   push();
   textSize(50);
@@ -111,6 +118,7 @@ function win() {
   pop();
 }
 
+//keyboard controls for the white circle
 function handleInput() {
   if (keyIsDown(LEFT_ARROW)) {
     circleUser.vx = -circleUser.speed;
@@ -133,7 +141,7 @@ function handleInput() {
   }
 }
 
-
+//circles movement
 function move() {
   circleUser.x = circleUser.x + circleUser.vx;
   circleUser.y = circleUser.y + circleUser.vy;
@@ -199,6 +207,7 @@ function move() {
     }
 }
 
+//display maze, circles, and green square
 function display() {
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 
@@ -321,6 +330,7 @@ function display() {
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 }
 
+//check if userCircle touches red circle
 function checkOverlap() {
   let d = dist(circle1.x,circle1.y,circleUser.x,circleUser.y);
   if (d < circle1.size/2 + circleUser.size/2) {
@@ -342,9 +352,10 @@ function checkOverlap() {
  if (d <  + circleUser.size/2) {
    state = `win`;
  }
-  
+
 }
 
+//leaves title page and starts simulation
 function mousePressed() {
   if (state ===`title`) {
     state = `simulation`;
