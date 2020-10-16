@@ -104,7 +104,7 @@ function lose() {
 
 function win() {
   push();
-  textSize(60);
+  textSize(50);
   fill(0,0,250);
   textAlign(CENTER,CENTER);
   text(`CONGRATULATIONS, YOU MADE IT :)`,width/2,height/2);
@@ -179,7 +179,11 @@ function move() {
 
 
   circleUser.x = constrain(circleUser.x,50,950);
-  circleUser.y = constrain(circleUser.y,50,550);
+  circleUser.y = constrain(circleUser.y,51,550);
+    if (circleUser.x > 949) {
+      circleUser.y = constrain(circleUser.y,50,550);
+
+    }
 
 
   circle5.x = circle5.x + circle5.speed;
@@ -336,7 +340,7 @@ function checkOverlap() {
     state = `lose`;
   }
 
-  if (circleUser.x === 950, circleUser.y === 50) {
+  if (circleUser.x,circleUser.y === (950,50)) {
     state = `win`;
   }
 }
