@@ -2,10 +2,7 @@
 
 let school = [];
 let schoolSize = 4;
-let circleUser = {
-  x: 300,
-  y: 300,
-  size:100,
+let circleUser = 2[];
 }
 
 function setup() {
@@ -14,6 +11,9 @@ function setup() {
   for ( let i = 0; i < schoolSize; i++) {
     school[i] = createFish(random(0, width), random(0, height));
   }
+
+  for (let i = 0; i < circleUserSize; i++) {
+  circleUserSize[i] = circleUserSize(random(0, width), random(0, height));
 }
 
 //createFish (x,y)
@@ -28,6 +28,15 @@ function createFish(x, y) {
     speed: 5
   };
   return fish;
+}
+
+function createUser(x, y){
+  let circleUser = {
+    x: x,
+    y: y,
+    size: 100,
+  };
+  return circleUser;
 }
 
 //draw()
@@ -73,10 +82,4 @@ function displayFish(fish) {
   noStroke();
   ellipse(fish.x, fish.y, fish.size);
   pop();
-}
-
-function display() {
-  noStroke()
-    fill(250,250,250);
-  ellipse(circleUser.x,circleUser.y,circleUser.size);
 }
