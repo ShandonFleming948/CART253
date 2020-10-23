@@ -2,6 +2,14 @@
 
 let school = [];
 let schoolSize = 4;
+let circleUser = {
+  x:300,
+  y:300,
+  size:50,
+  vx:1,
+  vy:1,
+  speed:2
+}
 
 function setup() {
   createCanvas(600,600);
@@ -36,6 +44,28 @@ function draw() {
   }
 }
 
+function handleInput() {
+  if (keyIsDown(LEFT_ARROW)) {
+    circleUser.vx = -circleUser.speed;
+  }
+  else if (keyIsDown(RIGHT_ARROW)) {
+    circleUser.vx = circleUser.speed;
+  }
+  else {
+    circleUser.vx = 0;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    circleUser.vy = -circleUser.speed;
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    circleUser.vy = circleUser.speed;
+  }
+  else {
+    circleUser.vy = 0;
+  }
+}
+
 //moveFish(fish)
 //chooses whether the provided fish changes direction and moves it
 function moveFish(fish) {
@@ -54,6 +84,9 @@ fish.y = fish.y + fish.vy;
 fish.x = constrain(fish.x, 0, width);
 fish.y = constrain(fish.y, 0, width);
 
+circleUser.x = constrain(circleUser.x,0,600);
+  circleUser.y = constrain(circleUser.y,0,600);
+
 }
 
 //displayFish(fish)
@@ -64,4 +97,11 @@ function displayFish(fish) {
   noStroke();
   ellipse(fish.x, fish.y, fish.size);
   pop();
+}
+
+function display() {
+  ellipse(circleUser.x,circleUser.y,circleUser.size)
+  ellipse(circleUser.x,circleUser.y,circleUser.size);
+  noStroke()
+    fill(250,250,250);
 }
