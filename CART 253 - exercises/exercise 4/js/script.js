@@ -21,7 +21,7 @@ function createFish(x, y) {
     size: 50,
     vx: 0,
     vy: 0,
-    speed: 2
+    speed: 5
   };
   return fish;
 }
@@ -45,7 +45,7 @@ function moveFish(fish) {
   let change = random(0, 1);
   if (change < 0.05) {
     fish.vx = random(-fish.speed, fish.speed);
-    fish.vx = random(-fish.speed, fish.speed);
+    fish.vy = random(-fish.speed, fish.speed);
   }
 
 //move the fish
