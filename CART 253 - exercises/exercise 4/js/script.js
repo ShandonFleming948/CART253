@@ -1,16 +1,15 @@
 "use strict";
 
-let school = [];
-let schoolSize = 4;
-let user = {
-  x: 250,
-  y: 250,
-  size: 100,
-  vx: 0,
-  vy: 0,
-  speed: 3,
-  };
-
+let school = { []; }
+let schoolSize = { 4; }
+let circleUser = {
+  x:300,
+  y:300,
+  size:50,
+  vx:1,
+  vy:1,
+  speed:2
+}
 
 function setup() {
   createCanvas(600,600);
@@ -42,6 +41,8 @@ function draw() {
   for (let i = 0; i < school.length; i++) {
     moveFish(school[i]);
     displayFish(school[i]);
+    moveCircleUser(school[i]);
+    displayCircleUser(school[i]);
   }
 }
 
@@ -72,4 +73,30 @@ function displayFish(fish) {
   noStroke();
   ellipse(fish.x, fish.y, fish.size);
   pop();
+}
+
+function displayCircleUser(fish) {
+  ellipse(circleUser.x,circleUser.y,circleUser.size);
+}
+
+function moveCircleUser(fish) {
+  if (keyIsDown(LEFT_ARROW)) {
+    circleUser.vx = -circleUser.speed;
+  }
+  else if (keyIsDown(RIGHT_ARROW)) {
+    circleUser.vx = circleUser.speed;
+  }
+  else {
+    circleUser.vx = 0;
+  }
+
+  if (keyIsDown(UP_ARROW)) {
+    circleUser.vy = -circleUser.speed;
+  }
+  else if (keyIsDown(DOWN_ARROW)) {
+    circleUser.vy = circleUser.speed;
+  }
+  else {
+    circleUser.vy = 0;
+  }
 }
