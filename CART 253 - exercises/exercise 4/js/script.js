@@ -3,12 +3,9 @@
 let school = [];
 let schoolSize = 4;
 let circleUser = {
-  x:300,
-  y:300,
-  size:50,
-  vx:1,
-  vy:1,
-  speed:2
+  x: 300,
+  y: 300,
+  size:100,
 }
 
 function setup() {
@@ -38,6 +35,11 @@ function createFish(x, y) {
 function draw() {
   background(0);
 
+  circleUser.x = mouseX;
+  circleUser.y = mouseY;
+
+  ellipse(circle.x, circle.y, circle.size);
+
   for (let i = 0; i < school.length; i++) {
     moveFish(school[i]);
     displayFish(school[i]);
@@ -62,14 +64,6 @@ fish.y = fish.y + fish.vy;
 fish.x = constrain(fish.x, 0, width);
 fish.y = constrain(fish.y, 0, width);
 }
-
-function move() {
-  circleUser.x = mouseX;
-  circleUser.y = mouseY;
-
-  circleUser.x = constrain(circleUser.x,0,600);
-    circleUser.y = constrain(circleUser.y,0,600);
-  }
 
 //displayFish(fish)
 //displays the provided fish on the canvas
