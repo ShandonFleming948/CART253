@@ -21,20 +21,6 @@ function setup() {
   };
 }
 
-//createFish (x,y)
-//creates a new Javascript object describing a fish and returns it
-function createFish(x, y) {
-  let fish = {
-    x: x,
-    y: y,
-    size: 50,
-    vx: 0,
-    vy: 0,
-    speed: 5
-  };
-  return fish;
-}
-
 //draw()
 //moves and displays the fish
 function draw() {
@@ -70,6 +56,7 @@ function title() {
 //run simulation
 function simulation() {
   handleInput();
+  createFish();
   moveFish();
   displayFish();
   moveCircleUser();
@@ -86,6 +73,21 @@ function lose() {
   text(`YOU GOT CAUGHT :(`,width/2,height/2);
   pop();
 }
+
+//createFish (x,y)
+//creates a new Javascript object describing a fish and returns it
+function createFish(x, y) {
+  let fish = {
+    x: x,
+    y: y,
+    size: 50,
+    vx: 0,
+    vy: 0,
+    speed: 5
+  };
+  return fish;
+}
+
 //moveFish(fish)
 //chooses whether the provided fish changes direction and moves it
 function moveFish(fish) {
@@ -152,12 +154,12 @@ function moveCircleUser(fish) {
 function checkOverlap() {
   let d = dist(school[i].x,school[i].y,circleUser.x,circleUser.y);
   if (d < school[i].size/2 + circleUser.size/2) {
-    //state = `lose`;
+    state = `lose`;
   }
 }
 
 function mousePressed() {
   if (state ===`title`) {
-    state = `simulation`;
+    state === `simulation`;
   }
 }
