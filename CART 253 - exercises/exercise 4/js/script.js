@@ -1,7 +1,7 @@
 "use strict";
 
-let school = { []; }
-let schoolSize = { 4; }
+let school = [];
+let schoolSize = 4;
 let circleUser = {
   x:300,
   y:300,
@@ -41,9 +41,9 @@ function draw() {
   for (let i = 0; i < school.length; i++) {
     moveFish(school[i]);
     displayFish(school[i]);
-    moveCircleUser(school[i]);
-    displayCircleUser(school[i]);
   }
+    moveCircleUser();
+    displayCircleUser();
 }
 
 //moveFish(fish)
@@ -99,4 +99,6 @@ function moveCircleUser(fish) {
   else {
     circleUser.vy = 0;
   }
+  circleUser.x = circleUser.x + circleUser.vx;
+  circleUser.y = circleUser.y + circleUser.vy;
 }
