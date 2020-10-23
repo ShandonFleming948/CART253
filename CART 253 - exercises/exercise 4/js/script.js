@@ -8,8 +8,10 @@ let circleUser = {
   size:50,
   vx:1,
   vy:1,
-  speed:2
+  speed:3
 }
+
+let state = `title`; //can be title, simulation, win, lose
 
 function setup() {
   createCanvas(600,600);
@@ -37,6 +39,16 @@ function createFish(x, y) {
 //moves and displays the fish
 function draw() {
   background(0);
+
+  if (state === `title`) {
+  title();
+}
+else if (state === `simulation`) {
+  simulation();
+}
+else if (state === `lose`) {
+  lose();
+}
 
   for (let i = 0; i < school.length; i++) {
     moveFish(school[i]);
@@ -101,4 +113,17 @@ function moveCircleUser(fish) {
   }
   circleUser.x = circleUser.x + circleUser.vx;
   circleUser.y = circleUser.y + circleUser.vy;
+
+  circleUser.x = constrain(circleUser.x,0,600);
+  circleUser.y = constrain(circleUser.y,0,600);
+    if (circleUser.x > 949) {
+      circleUser.y = constrain(circleUser.y,50,550);
+    }
+}
+
+function checkOverlap() {
+  let d = dist(school[i].x,school[i].y,circleUser.x,circleUser.y);
+  if (d < school[i].size/2 + circleUser.size/2) {
+    //state = `lose`;
+  }
 }
