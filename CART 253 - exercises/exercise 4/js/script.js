@@ -1,14 +1,13 @@
 "use strict";
 
 let school = [];
-let schoolSize = 1;
+let schoolSize = 4;
 
 function setup() {
   createCanvas(600,600);
 
   for ( let i = 0; i < schoolSize; i++) {
-    let fish = createFish(random(0, width), random(0, height));
-    school.push(fish);
+    school[i] = createFish(random(0, width), random(0, height));
   }
 }
 
@@ -37,7 +36,6 @@ function draw() {
   }
 }
 
-
 //moveFish(fish)
 //chooses whether the provided fish changes direction and moves it
 function moveFish(fish) {
@@ -62,13 +60,8 @@ fish.y = constrain(fish.y, 0, width);
 //displays the provided fish on the canvas
 function displayFish(fish) {
   push();
-  fill(200, 100, 100);
+  fill(225, 0, 0);
   noStroke();
   ellipse(fish.x, fish.y, fish.size);
   pop();
-}
-
-function mousePressed() {
-  let fish = createFish(mouseX, mouseY);
-  school.push(fish);
 }
