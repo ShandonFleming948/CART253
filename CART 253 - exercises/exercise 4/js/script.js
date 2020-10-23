@@ -58,6 +58,34 @@ else if (state === `lose`) {
     displayCircleUser();
 }
 
+function title() {
+  push();
+  textSize(24);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`Survive As Long As You Can Without Getting Caught`,width/2,height/2);
+  pop();
+}
+
+//run simulation
+function simulation() {
+  handleInput();
+  moveFish();
+  displayFish();
+  moveCircleUser();
+  displayCircleUser();
+  checkOverlap();
+}
+
+//display "lose" page if user touches a red circle
+function lose() {
+  push();
+  textSize(64);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`YOU GOT CAUGHT :(`,width/2,height/2);
+  pop();
+}
 //moveFish(fish)
 //chooses whether the provided fish changes direction and moves it
 function moveFish(fish) {
@@ -125,5 +153,11 @@ function checkOverlap() {
   let d = dist(school[i].x,school[i].y,circleUser.x,circleUser.y);
   if (d < school[i].size/2 + circleUser.size/2) {
     //state = `lose`;
+  }
+}
+
+function mousePressed() {
+  if (state ===`title`) {
+    state = `simulation`;
   }
 }
