@@ -36,13 +36,14 @@ else if (state === `lose`) {
   lose();
 }
 
+
   for (let i = 0; i < school.length; i++) {
     moveFish(school[i]);
     displayFish(school[i]);
-  }
+}
     moveCircleUser();
     displayCircleUser();
-}
+
 
 function title() {
   push();
@@ -160,6 +161,6 @@ function checkOverlap() {
 
 function mousePressed() {
   if (state ===`title`) {
-    state === `simulation`;
+    state = `simulation`;
   }
 }
