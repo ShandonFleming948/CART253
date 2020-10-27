@@ -1,5 +1,12 @@
 "use strict";
 
+// Project 1
+// Shandon Fleming\
+// CART 253
+//
+// use the keyboard arrows to dodge the red fish for as long as you possibly can
+
+//objects
 let school = [];
 let schoolSize = 6;
 let circleUser = {
@@ -11,11 +18,13 @@ let circleUser = {
   speed:3
 }
 
+//first state
 let state = `title`; //can be title, simulation, win, lose
 
 function setup() {
   createCanvas(600,600);
 
+//for-loop for the school of fish
   for ( let i = 0; i < schoolSize; i++) {
     school[i] = createFish(random(0, width), random(0, height));
   };
@@ -37,6 +46,7 @@ else if (state === `lose`) {
 }
 }
 
+//displays the title
 function title() {
   push();
   textSize(24);
@@ -113,6 +123,7 @@ function displayFish(fish) {
   pop();
 }
 
+//displays the circle that the user controls with the keyboard controls
 function displayCircleUser(fish) {
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 }
@@ -147,6 +158,7 @@ function moveCircleUser(fish) {
     // }
 }
 
+//checks if circleUser is caught by the fish
 function checkOverlap(fish) {
   let d = dist(fish.x,fish.y,circleUser.x,circleUser.y);
   if (d < fish.size/2 + circleUser.size/2) {
@@ -154,6 +166,7 @@ function checkOverlap(fish) {
   }
 }
 
+//changes the state when the mouse is pressed
 function mousePressed() {
   if (state ===`title`) {
     state = `simulation`;
