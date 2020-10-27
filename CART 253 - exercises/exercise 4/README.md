@@ -1,3 +1,4 @@
-# Template p5 project
+Exercise 4
 
-This is the README file for the entire project. For more official projects you should write information here about the nature of the project, your name, any special explanations of how the project works, etc.
+This code displays a simulation in which you have to use the keyboard arrows
+to control a white circle and dodge the red "fish" for as long as you possibly can.

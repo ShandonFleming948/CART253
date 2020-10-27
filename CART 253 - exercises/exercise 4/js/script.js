@@ -33,7 +33,7 @@ function setup() {
 //draw()
 //moves and displays the fish
 function draw() {
-  background(0);
+  background(18, 152, 219);
 
   if (state === `title`) {
   title();
@@ -50,7 +50,7 @@ else if (state === `lose`) {
 function title() {
   push();
   textSize(24);
-  fill(0,0,250);
+  fill(0,0,0);
   textAlign(CENTER,CENTER);
   text(`Survive As Long As You Can Without Getting Caught`,width/2,height/2);
   pop();
@@ -74,7 +74,7 @@ function simulation() {
 function lose() {
   push();
   textSize(45);
-  fill(0,0,250);
+  fill(0,0,0);
   textAlign(CENTER,CENTER);
   text(`YOU GOT CAUGHT :(`,width/2,height/2);
   pop();
