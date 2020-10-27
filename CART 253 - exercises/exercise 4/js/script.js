@@ -1,7 +1,7 @@
 "use strict";
 
 let school = [];
-let schoolSize = 4;
+let schoolSize = 6;
 let circleUser = {
   x:300,
   y:300,
@@ -35,15 +35,7 @@ else if (state === `simulation`) {
 else if (state === `lose`) {
   lose();
 }
-
-
-  for (let i = 0; i < school.length; i++) {
-    moveFish(school[i]);
-    displayFish(school[i]);
 }
-    moveCircleUser();
-    displayCircleUser();
-
 
 function title() {
   push();
@@ -56,19 +48,22 @@ function title() {
 
 //run simulation
 function simulation() {
-  handleInput();
-  createFish();
-  moveFish();
-  displayFish();
+  for (let i = 0; i < school.length; i++) {
+    moveFish(school[i]);
+    displayFish(school[i]);
+    checkOverlap(school[i]);
+}
+
   moveCircleUser();
   displayCircleUser();
-  checkOverlap();
+
 }
+
 
 //display "lose" page if user touches a red circle
 function lose() {
   push();
-  textSize(64);
+  textSize(45);
   fill(0,0,250);
   textAlign(CENTER,CENTER);
   text(`YOU GOT CAUGHT :(`,width/2,height/2);
@@ -147,14 +142,14 @@ function moveCircleUser(fish) {
 
   circleUser.x = constrain(circleUser.x,0,600);
   circleUser.y = constrain(circleUser.y,0,600);
-    if (circleUser.x > 949) {
-      circleUser.y = constrain(circleUser.y,50,550);
-    }
+    // if (circleUser.x > ) {
+    //   circleUser.y = constrain(circleUser.y,50,550);
+    // }
 }
 
-function checkOverlap() {
-  let d = dist(school[i].x,school[i].y,circleUser.x,circleUser.y);
-  if (d < school[i].size/2 + circleUser.size/2) {
+function checkOverlap(fish) {
+  let d = dist(fish.x,fish.y,circleUser.x,circleUser.y);
+  if (d < fish.size/2 + circleUser.size/2) {
     state = `lose`;
   }
 }
