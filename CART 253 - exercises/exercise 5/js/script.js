@@ -36,7 +36,7 @@ function setup() {
 function draw() {
   background(0);
 
-  // paddle.move();
+  paddle.move();
   paddle.display();
 
   for (let i = 0; i < balls.length; i++) {
@@ -51,7 +51,8 @@ function draw() {
 }
 
   function move() {
-    paddle.x = constrain(paddle.x,windowWidth,windowHeight);
+    paddle.x = paddle.x + paddle.vx;
+    paddle.x = constrain(paddle.x,0,width);
   }
 
   function handleInput() {
