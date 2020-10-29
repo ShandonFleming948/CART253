@@ -26,7 +26,7 @@ function setup() {
     let x = random(0,width);
     let y = random(-400,-100);
     let ball = new Ball(x,y);
-    Balls.push(ball);
+    balls.push(ball);
   }
 }
 
@@ -38,4 +38,12 @@ function draw() {
 
   paddle.move();
   paddle.display();
+
+  for (let i = 0; i < balls.length; i++) {
+    let ball = balls[i];
+    ball.gravity(gravityForce);
+    ball.move();
+    ball.bounce();
+    ball.display();
+  }
 }
