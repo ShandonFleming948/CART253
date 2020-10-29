@@ -14,6 +14,18 @@ class Paddle {
      this.x = constrain(this.x,0,width);
   }
 
+  handleInput() {
+    if (keyIsDown(LEFT_ARROW)) {
+    paddle.vx = -paddle.speed;
+  }
+    else if (keyIsDown(RIGHT_ARROW)) {
+    paddle.vx = paddle.speed;
+  }
+    else {
+    paddle.vx = 0;
+  }
+}
+
 
   display() {
     push();

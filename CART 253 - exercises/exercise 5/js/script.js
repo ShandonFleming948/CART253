@@ -38,6 +38,7 @@ function draw() {
 
   paddle.move();
   paddle.display();
+  paddle.handleInput();
 
   for (let i = 0; i < balls.length; i++) {
     let ball = balls[i];
@@ -55,14 +56,14 @@ function draw() {
     paddle.x = constrain(paddle.x,0,width);
   }
 
-  function handleInput() {
-    if (keyIsDown(LEFT_ARROW)) {
-    paddle.vx = -paddle.speed;
-  }
-    else if (keyIsDown(RIGHT_ARROW)) {
-    paddle.vx = paddle.speed;
-  }
-    else {
-    paddle.vx = 0;
-  }
-}
+//   function handleInput() {
+//     if (keyIsDown(LEFT_ARROW)) {
+//     paddle.vx = -paddle.speed;
+//   }
+//     else if (keyIsDown(RIGHT_ARROW)) {
+//     paddle.vx = paddle.speed;
+//   }
+//     else {
+//     paddle.vx = 0;
+//   }
+// }
