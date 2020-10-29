@@ -10,6 +10,7 @@ Here is a description of this template p5 project.
 // setup()
 //
 // Description of setup() goes here.
+let gravityForce = 0.0025;
 
 let paddle;
 
