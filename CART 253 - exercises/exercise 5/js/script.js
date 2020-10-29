@@ -36,7 +36,7 @@ function setup() {
 function draw() {
   background(0);
 
-  paddle.move();
+  // paddle.move();
   paddle.display();
 
   for (let i = 0; i < balls.length; i++) {
@@ -47,5 +47,21 @@ function draw() {
       ball.bounce(paddle);
       ball.display();
     }
+  }
+}
+
+  function move() {
+    paddle.x = constrain(paddle.x,windowWidth,windowHeight);
+  }
+
+  function handleInput() {
+    if (keyIsDown(LEFT_ARROW)) {
+    paddle.vx = -paddle.speed;
+  }
+    else if (keyIsDown(RIGHT_ARROW)) {
+    paddle.vx = paddle.speed;
+  }
+    else {
+    paddle.vx = 0;
   }
 }

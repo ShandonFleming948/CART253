@@ -4,12 +4,14 @@ class Paddle {
     this.width = w;
     this.height = h;
     this.x = 0;
-    this.y = height - this.height/2
+    this.y = height - this.height/2;
+    this.vx = 3;
+    this.speed = 5
   }
 
-  move() {
-    this.x = mouseX;
-  }
+  // move() {
+  //   this.x = mouseX;
+
 
   display() {
     push();
