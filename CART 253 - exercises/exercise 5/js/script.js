@@ -14,10 +14,20 @@ let gravityForce = 0.0025;
 
 let paddle;
 
+let balls = [];
+let numBalls = 3;
+
 function setup() {
   createCanvas(windowWidth,windowHeight);
 
   paddle = new Paddle(300,20);
+
+  for (let i = 0; i < numBalls; i++) {
+    let x = random(0,width);
+    let y = random(-400,-100);
+    let ball = new Ball(x,y);
+    Balls.push(ball);
+  }
 }
 
 // draw()
