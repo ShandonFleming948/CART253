@@ -5,7 +5,7 @@ Shandon Fleming
 
 CART 253 - Exercise 5
 
-Juggling BALLS
+Juggling Balls
 
 Juggle the balls until only the red balls/a red ball is left
 **************************************************/
@@ -48,31 +48,31 @@ function setup() {
 function draw() {
   background(26, 186, 240);
 
-  paddle.move();
-  paddle.display();
-  paddle.handleInput();
+  // paddle.move();
+  // paddle.display();
+  // paddle.handleInput();
 
-//for loop for the red balls
-  for (let i = 0; i < balls.length; i++) {
-    let ball = balls[i];
-    if (ball.active) {
-      ball.gravity(gravityForce);
-      ball.move();
-      ball.bounce(paddle);
-      ball.display();
-    }
-  }
-
-//for loop for the larger green balls
-  for (let j = 0; j < largerBalls.length; j++) {
-    let largerBall = largerBalls[j];
-    if (largerBall.active) {
-      largerBall.gravity(gravityForce);
-      largerBall.move();
-      largerBall.bounce(paddle);
-      largerBall.display();
-    }
-  }
+// //for loop for the red balls
+//   for (let i = 0; i < balls.length; i++) {
+//     let ball = balls[i];
+//     if (ball.active) {
+//       ball.gravity(gravityForce);
+//       ball.move();
+//       ball.bounce(paddle);
+//       ball.display();
+//     }
+//   }
+//
+// //for loop for the larger green balls
+//   for (let j = 0; j < largerBalls.length; j++) {
+//     let largerBall = largerBalls[j];
+//     if (largerBall.active) {
+//       largerBall.gravity(gravityForce);
+//       largerBall.move();
+//       largerBall.bounce(paddle);
+//       largerBall.display();
+//     }
+//   }
 
   //4 states
   if (state === `title`) {
@@ -113,6 +113,33 @@ function draw() {
       checkActive(largerBalls[j]);
      }
       handleInput();
+
+    //for loop for the red balls
+      for (let i = 0; i < balls.length; i++) {
+        let ball = balls[i];
+        if (ball.active) {
+          ball.gravity(gravityForce);
+          ball.move();
+          ball.bounce(paddle);
+          ball.display();
+        }
+      }
+
+    //for loop for the larger green balls
+      for (let j = 0; j < largerBalls.length; j++) {
+        let largerBall = largerBalls[j];
+        if (largerBall.active) {
+          largerBall.gravity(gravityForce);
+          largerBall.move();
+          largerBall.bounce(paddle);
+          largerBall.display();
+        }
+      }
+
+      paddle.move();
+      paddle.display();
+      paddle.handleInput();
+
   }
 
 //display "lose" page if user drops all the red balls
@@ -136,19 +163,36 @@ function draw() {
   }
 
 //moves the juggling paddle
-  function move() {
-    paddle.x = paddle.x + paddle.vx;
-    paddle.x = constrain(paddle.x,0,width);
-  }
+  // function move() {
+  //   paddle.x = paddle.x + paddle.vx;
+  //   paddle.x = constrain(paddle.x,0,width);
+  // }
 
 //checks to see which balls have falles
-  function checkActive() {
-    if (ball.active === true && largerBall.active === false) {
-      state = `win`;
-    }
-    else {
-      state = `lose`;
-    }
+  function checkActive(ball,largerBall) {
+    let numActiveBalls = 0;
+for (let i = 0; i < balls.length; i++) {
+  let ball = balls[i];
+  if (ball.active) {
+    numActiveBalls = numActiveBalls + 1;
+  }
+}
+
+if (numActiveBalls === 0) {
+  // There are no active (standard) balls!
+}
+
+  let numActiveLargerBalls = 0;
+for (let i = 0; i < largerBalls.length; i++) {
+  let largerBall = largerBalls[i];
+  if (largerBall.active) {
+    numActiveLargerBalls = numActiveLargerBalls + 1;
+  }
+}
+
+if (numActiveLargerBalls === 0) {
+// There are no active (standard) balls!
+}
   }
 
 //changes state from title to simulation
