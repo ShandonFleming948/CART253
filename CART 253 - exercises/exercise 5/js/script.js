@@ -17,6 +17,9 @@ let paddle;
 let balls = [];
 let numBalls = 3;
 
+let bigBalls = [];
+let numBigBalls = 2;
+
 function setup() {
   createCanvas(1260,610);
 
@@ -27,6 +30,13 @@ function setup() {
     let y = random(-400,-100);
     let ball = new Ball(x,y);
     balls.push(ball);
+  }
+
+  for (let i = 0; i < numBigBalls; i++) {
+    let x = random(0,width);
+    let y = random(-400,-100);
+    let bigBall = new BigBall(x,y);
+    bigBalls.push(bigBall);
   }
 }
 
@@ -49,21 +59,20 @@ function draw() {
       ball.display();
     }
   }
+
+  for (let i = 0; i < bigBalls.length; i++) {
+    let bigBall = bigBalls[i];
+    if (bigBall.active) {
+      bigBall.gravity(gravityForce);
+      bigBall.move();
+      bigBall.bounce(paddle);
+      bigBall.display();
+    }
+  }
+
 }
 
   function move() {
     paddle.x = paddle.x + paddle.vx;
     paddle.x = constrain(paddle.x,0,width);
   }
-
-//   function handleInput() {
-//     if (keyIsDown(LEFT_ARROW)) {
-//     paddle.vx = -paddle.speed;
-//   }
-//     else if (keyIsDown(RIGHT_ARROW)) {
-//     paddle.vx = paddle.speed;
-//   }
-//     else {
-//     paddle.vx = 0;
-//   }
-// }

@@ -8,7 +8,7 @@ class BigBall {
     this.ax = 0;
     this.ay = 0;
     this.maxSpeed = 10;
-    this.size = 70;
+    this.size = 100;
     this.active = true;
   }
 
@@ -46,7 +46,7 @@ bounce(paddle) {
 
 display() {
   push();
-  fill(255,50,50);
+  fill(26, 240, 37);
   stroke(0);
   ellipse(this.x,this.y,this.size);
   pop();
