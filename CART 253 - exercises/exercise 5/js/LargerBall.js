@@ -1,4 +1,4 @@
-class BigBall {
+class LargerBall {
 
   constructor(x,y) {
     this.x = x;

@@ -17,8 +17,8 @@ let paddle;
 let balls = [];
 let numBalls = 3;
 
-let bigBalls = [];
-let numBigBalls = 2;
+let largerBalls = [];
+let numLargerBalls = 2;
 
 let state = `title`;
 
@@ -34,11 +34,11 @@ function setup() {
     balls.push(ball);
   }
 
-  for (let i = 0; i < numBigBalls; i++) {
+  for (let j = 0; j < numLargerBalls; j++) {
     let x = random(0,width);
     let y = random(-400,-100);
-    let bigBall = new BigBall(x,y);
-    bigBalls.push(bigBall);
+    let largerBall = new LargerBall(x,y);
+    largerBalls.push(largerBall);
   }
 }
 
@@ -62,13 +62,13 @@ function draw() {
     }
   }
 
-  for (let j = 0; j < bigBalls.length; j++) {
-    let bigBall = bigBalls[j];
-    if (bigBall.active) {
-      bigBall.gravity(gravityForce);
-      bigBall.move();
-      bigBall.bounce(paddle);
-      bigBall.display();
+  for (let j = 0; j < largerBalls.length; j++) {
+    let largerBall = largerBalls[j];
+    if (largerBall.active) {
+      largerBall.gravity(gravityForce);
+      largerBall.move();
+      largerBall.bounce(paddle);
+      largerBall.display();
     }
   }
 
@@ -103,10 +103,10 @@ function draw() {
       checkActive(balls[i]);
     }
 
-    for (let j = 0; j < bigBall.length; j++) {
-      move(bigBalls[j]);
-      display(bigBalls[j]);
-      checkActive(bigBalls[j]);
+    for (let j = 0; j < largerBall.length; j++) {
+      move(largerBalls[j]);
+      display(largerBalls[j]);
+      checkActive(largerBalls[j]);
     }
 
       handleInput();
@@ -139,7 +139,7 @@ function draw() {
   }
 
   function checkActive() {
-    if (ball.active === true && bigBall.active === false) {
+    if (ball.active === true && largerBall.active === false) {
       state = `win`;
     }
     else {
