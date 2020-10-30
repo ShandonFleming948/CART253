@@ -18,7 +18,7 @@ let balls = [];
 let numBalls = 3;
 
 function setup() {
-  createCanvas(windowWidth,windowHeight);
+  createCanvas(1260,610);
 
   paddle = new Paddle(300,20);
 
