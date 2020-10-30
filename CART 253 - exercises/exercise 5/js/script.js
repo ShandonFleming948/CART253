@@ -18,7 +18,7 @@ let balls = [];
 let numBalls = 3;
 
 let largerBalls = [];
-let numLargerBalls = 2;
+let numLargerBalls = 5;
 
 let state = `title`;
 
@@ -107,8 +107,7 @@ function draw() {
       move(largerBalls[j]);
       display(largerBalls[j]);
       checkActive(largerBalls[j]);
-    }
-
+     }
       handleInput();
   }
 
