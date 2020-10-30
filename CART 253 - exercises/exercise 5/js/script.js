@@ -1,15 +1,16 @@
 "use strict";
 
 /**************************************************
-Template p5 project
-Pippin Barr
+Shandon Fleming
 
-Here is a description of this template p5 project.
+CART 253 - Exercise 5
+
+Juggling BALLS
+
+Juggle the balls until only the red balls/a red ball is left
 **************************************************/
 
-// setup()
-//
-// Description of setup() goes here.
+//created variables
 let gravityForce = 0.0025;
 
 let paddle;
@@ -20,8 +21,9 @@ let numBalls = 3;
 let largerBalls = [];
 let numLargerBalls = 5;
 
-let state = `title`;
+let state = `title`;//can be title, simulation, win, lose
 
+//setup for the canvas and the ball positions
 function setup() {
   createCanvas(1260,610);
 
@@ -42,9 +44,7 @@ function setup() {
   }
 }
 
-// draw()
-//
-// Description of draw() goes here.
+//customizes the background and manages the paddle/paddle movement
 function draw() {
   background(26, 186, 240);
 
@@ -52,6 +52,7 @@ function draw() {
   paddle.display();
   paddle.handleInput();
 
+//for loop for the red balls
   for (let i = 0; i < balls.length; i++) {
     let ball = balls[i];
     if (ball.active) {
@@ -62,6 +63,7 @@ function draw() {
     }
   }
 
+//for loop for the larger green balls
   for (let j = 0; j < largerBalls.length; j++) {
     let largerBall = largerBalls[j];
     if (largerBall.active) {
@@ -87,6 +89,7 @@ function draw() {
   }
 }
 
+//displays the title and its characteristics
   function title() {
     push();
     textSize(24);
@@ -96,6 +99,7 @@ function draw() {
     pop();
   }
 
+//runs the simulation
   function simulation() {
     for (let i = 0; i < ball.length; i++) {
       move(balls[i]);
@@ -111,7 +115,7 @@ function draw() {
       handleInput();
   }
 
-//display "lose" page if user touches a red circle
+//display "lose" page if user drops all the red balls
   function lose() {
     push();
     textSize(64);
@@ -121,7 +125,7 @@ function draw() {
     pop();
   }
 
-//display "win" page if user makes it to the green square
+//display "win" page if user juggles the balls until at least one red one is left
   function win() {
     push();
     textSize(50);
@@ -131,12 +135,13 @@ function draw() {
     pop();
   }
 
-
+//moves the juggling paddle
   function move() {
     paddle.x = paddle.x + paddle.vx;
     paddle.x = constrain(paddle.x,0,width);
   }
 
+//checks to see which balls have falles
   function checkActive() {
     if (ball.active === true && largerBall.active === false) {
       state = `win`;
@@ -146,6 +151,7 @@ function draw() {
     }
   }
 
+//changes state from title to simulation
   function mousePressed() {
     if (state ===`title`) {
     state = `simulation`;
