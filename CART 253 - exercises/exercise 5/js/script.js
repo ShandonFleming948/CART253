@@ -62,8 +62,8 @@ function draw() {
     }
   }
 
-  for (let i = 0; i < bigBalls.length; i++) {
-    let bigBall = bigBalls[i];
+  for (let j = 0; j < bigBalls.length; j++) {
+    let bigBall = bigBalls[j];
     if (bigBall.active) {
       bigBall.gravity(gravityForce);
       bigBall.move();
@@ -97,10 +97,19 @@ function draw() {
   }
 
   function simulation() {
-    handleInput();
-    move();
-    display();
-    checkActive();
+    for (let i = 0; i < ball.length; i++) {
+      move(balls[i]);
+      display(balls[i]);
+      checkActive(balls[i]);
+    }
+
+    for (let j = 0; j < bigBall.length; j++) {
+      move(bigBalls[j]);
+      display(bigBalls[j]);
+      checkActive(bigBalls[j]);
+    }
+
+      handleInput();
   }
 
 //display "lose" page if user touches a red circle
@@ -129,17 +138,17 @@ function draw() {
     paddle.x = constrain(paddle.x,0,width);
   }
 
-  function mousePressed() {
-    if (state ===`title`) {
-    state = `simulation`;
-    }
-  }
-
   function checkActive() {
     if (ball.active === true && bigBall.active === false) {
       state = `win`;
     }
     else {
       state = `lose`;
+    }
+  }
+
+  function mousePressed() {
+    if (state ===`title`) {
+    state = `simulation`;
     }
   }
