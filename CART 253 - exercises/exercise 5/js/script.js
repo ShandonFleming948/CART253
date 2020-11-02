@@ -19,7 +19,7 @@ let balls = [];
 let numBalls = 3;
 
 let largerBalls = [];
-let numLargerBalls = 5;
+let numLargerBalls = 10;
 
 let state = `title`;//can be title, simulation, win, lose
 
@@ -48,32 +48,6 @@ function setup() {
 function draw() {
   background(26, 186, 240);
 
-  // paddle.move();
-  // paddle.display();
-  // paddle.handleInput();
-
-// //for loop for the red balls
-//   for (let i = 0; i < balls.length; i++) {
-//     let ball = balls[i];
-//     if (ball.active) {
-//       ball.gravity(gravityForce);
-//       ball.move();
-//       ball.bounce(paddle);
-//       ball.display();
-//     }
-//   }
-//
-// //for loop for the larger green balls
-//   for (let j = 0; j < largerBalls.length; j++) {
-//     let largerBall = largerBalls[j];
-//     if (largerBall.active) {
-//       largerBall.gravity(gravityForce);
-//       largerBall.move();
-//       largerBall.bounce(paddle);
-//       largerBall.display();
-//     }
-//   }
-
   //4 states
   if (state === `title`) {
     title();
@@ -101,18 +75,6 @@ function draw() {
 
 //runs the simulation
   function simulation() {
-    for (let i = 0; i < ball.length; i++) {
-      move(balls[i]);
-      display(balls[i]);
-      checkActive(balls[i]);
-    }
-
-    for (let j = 0; j < largerBall.length; j++) {
-      move(largerBalls[j]);
-      display(largerBalls[j]);
-      checkActive(largerBalls[j]);
-     }
-      handleInput();
 
     //for loop for the red balls
       for (let i = 0; i < balls.length; i++) {
@@ -140,6 +102,7 @@ function draw() {
       paddle.display();
       paddle.handleInput();
 
+      checkActive();
   }
 
 //display "lose" page if user drops all the red balls
@@ -162,24 +125,14 @@ function draw() {
     pop();
   }
 
-//moves the juggling paddle
-  // function move() {
-  //   paddle.x = paddle.x + paddle.vx;
-  //   paddle.x = constrain(paddle.x,0,width);
-  // }
-
-//checks to see which balls have falles
-  function checkActive(ball,largerBall) {
+//checks to see which balls have fallen
+  function checkActive() {
     let numActiveBalls = 0;
 for (let i = 0; i < balls.length; i++) {
   let ball = balls[i];
   if (ball.active) {
     numActiveBalls = numActiveBalls + 1;
   }
-}
-
-if (numActiveBalls === 0) {
-  // There are no active (standard) balls!
 }
 
   let numActiveLargerBalls = 0;
@@ -189,9 +142,13 @@ for (let i = 0; i < largerBalls.length; i++) {
     numActiveLargerBalls = numActiveLargerBalls + 1;
   }
 }
-
-if (numActiveLargerBalls === 0) {
+console.log(numActiveBalls,numActiveLargerBalls)
+if (numActiveLargerBalls === 0 && numActiveBalls > 0) {
 // There are no active (standard) balls!
+  state = `win`;
+}
+if (numActiveLargerBalls > 0 && numActiveBalls === 0) {
+  state = `lose`;
 }
   }
 

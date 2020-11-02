@@ -1,5 +1,6 @@
 class Ball {
 
+//assigned the characteristics of the red balls
   constructor(x,y) {
     this.x = x;
     this.y = y;
@@ -12,10 +13,12 @@ class Ball {
     this.active = true;
   }
 
+//customized how the red balls react to gravity
 gravity(force) {
   this.ay = this.ay + force;
 }
 
+//assigned movement and parameters
 move() {
   this.vx = this.vx + this.ax;
   this.vy = this.vy + this.ay;
@@ -31,6 +34,7 @@ move() {
   }
 }
 
+//customized how the red balls react to the paddle
 bounce(paddle) {
   if (this.x > paddle.x - paddle.width/2 &&
       this.x < paddle.x + paddle.width/2 &&
@@ -44,6 +48,7 @@ bounce(paddle) {
     }
   }
 
+//displays the red balls
 display() {
   push();
   fill(255,50,50);
