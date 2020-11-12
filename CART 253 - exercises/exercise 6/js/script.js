@@ -23,6 +23,7 @@ function setup() {
   createCanvas(600,600);
 
   oscillator = new p5.Oscillator(340,`sine`);
+  oscillator.amp(0.1);
 }
 
 // draw()
@@ -78,11 +79,11 @@ function keyPressed() {
   if (keyIsDown(LEFT_ARROW) || (keyIsDown(RIGHT_ARROW)) || (keyIsDown(UP_ARROW)) || (keyIsDown(DOWN_ARROW))) {
     oscillator.start();
   }
-  else {
-    oscillator.stop();
-  }
+  // else {
+  //   oscillator.stop();
+  // }
 }
 
 function keyReleased() {
-
+  oscillator.stop();
 }
