@@ -66,6 +66,6 @@ function move() {
 
 function display() {
   noStroke()
-  fill(184, 29, 18);
+  fill(250);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 }
