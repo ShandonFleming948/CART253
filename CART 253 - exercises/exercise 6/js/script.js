@@ -6,6 +6,8 @@ Pippin Barr
 
 Here is a description of this template p5 project.
 **************************************************/
+let oscillator;
+
 let circleUser = {
   x:300,
   y:300,
@@ -19,6 +21,8 @@ let circleUser = {
 // Description of setup() goes here.
 function setup() {
   createCanvas(600,600);
+
+  oscillator = new p5.Oscillator(340,`sine`);
 }
 
 // draw()
@@ -68,4 +72,17 @@ function display() {
   noStroke()
   fill(250);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
+}
+
+function keyPressed() {
+  if (keyIsDown(LEFT_ARROW) || (keyIsDown(RIGHT_ARROW)) || (keyIsDown(UP_ARROW)) || (keyIsDown(DOWN_ARROW))) {
+    oscillator.start();
+  }
+  else {
+    oscillator.stop();
+  }
+}
+
+function keyReleased() {
+
 }
