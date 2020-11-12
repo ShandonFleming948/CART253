@@ -12,7 +12,7 @@ let circleUser = {
   size:50,
   vx:1,
   vy:1,
-  speed:2
+  speed:4
 }
 // setup()
 //
@@ -26,6 +26,10 @@ function setup() {
 // Description of draw() goes here.
 function draw() {
   background(52,177,235);
+
+  handleInput();
+  move();
+  display();
 }
 
 
@@ -62,6 +66,6 @@ function move() {
 
 function display() {
   noStroke()
-  fill(250,250,250);
+  fill(184, 29, 18);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 }
