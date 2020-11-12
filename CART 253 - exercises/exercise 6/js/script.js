@@ -22,8 +22,8 @@ let circleUser = {
 function setup() {
   createCanvas(600,600);
 
-  oscillator = new p5.Oscillator(340,`sine`);
-  oscillator.amp(0.1);
+  oscillator = new p5.Oscillator(440,`sine`);
+  oscillator.amp(0.0001);
 }
 
 // draw()
@@ -76,14 +76,36 @@ function display() {
 }
 
 function keyPressed() {
-  if (keyIsDown(LEFT_ARROW) || (keyIsDown(RIGHT_ARROW)) || (keyIsDown(UP_ARROW)) || (keyIsDown(DOWN_ARROW))) {
+  // if (keyIsDown(LEFT_ARROW) || (keyIsDown(RIGHT_ARROW)) || (keyIsDown(UP_ARROW)) || (keyIsDown(DOWN_ARROW))) {
+  //   oscillator.start();
+  // }
+
+  if (keyIsDown(RIGHT_ARROW)) {
+    oscillator = new p5.Oscillator(400,`sine`);
     oscillator.start();
   }
-  // else {
-  //   oscillator.stop();
-  // }
+
+  else if (keyIsDown(UP_ARROW)) {
+    oscillator = new p5.Oscillator(500,`sine`);
+    oscillator.start();
+  }
+
+  else if (keyIsDown(LEFT_ARROW)) {
+    oscillator = new p5.Oscillator(300,`sine`);
+    oscillator.start();
+  }
+
+  else if (keyIsDown(DOWN_ARROW)) {
+    oscillator = new p5.Oscillator(200,`sine`);
+    oscillator.start();
+  }
+
 }
 
 function keyReleased() {
-  oscillator.stop();
+  console.log(oscillator);
+  if (oscillator) {
+    oscillator.stop();
+    oscillator = undefined;
+  }
 }
