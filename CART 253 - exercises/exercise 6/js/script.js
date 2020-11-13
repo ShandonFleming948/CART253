@@ -1,13 +1,17 @@
 "use strict";
 
 /**************************************************
-Template p5 project
-Pippin Barr
+Shandon Fleming
+CART 253
+Exercise 6
 
-Here is a description of this template p5 project.
+The code below displays a circle that the user controls with the
+arrow keys. Each arrow key plays a different note when pressed.
 **************************************************/
+//added variable for the oscillator
 let oscillator;
 
+//created circleUser variable and characteristics
 let circleUser = {
   x: 300,
   y: 300,
@@ -16,22 +20,21 @@ let circleUser = {
   vy: 1,
   speed: 4
 }
-// setup()
-//
-// Description of setup() goes here.
+
 function setup() {
+  //created canvas / canvas dimensions
   createCanvas(600, 600);
 
+  //added oscillator and customized oscillator properties
   oscillator = new p5.Oscillator(440, `sine`);
   oscillator.start();
 }
 
-// draw()
-//
-// Description of draw() goes here.
 function draw() {
+  //set background color
   background(52, 177, 235);
 
+  //included functions
   handleInput();
   move();
   sing();
@@ -39,7 +42,7 @@ function draw() {
   display();
 }
 
-
+//added keyboard controls for circleUser
 function handleInput() {
   if (keyIsDown(LEFT_ARROW)) {
     circleUser.vx = -circleUser.speed;
@@ -62,6 +65,7 @@ function handleInput() {
   }
 }
 
+//set up horizontal and vertical movement
 function move() {
   circleUser.x = circleUser.x + circleUser.vx;
   circleUser.y = circleUser.y + circleUser.vy;
@@ -70,13 +74,14 @@ function move() {
   circleUser.y = constrain(circleUser.y, 50, 550);
 
 }
-
+//set up the circle and its properties
 function display() {
   noStroke()
   fill(250);
   ellipse(circleUser.x, circleUser.y, circleUser.size);
 }
 
+//changes oscillator frequency based on the velocity/direction of the circle
 function sing() {
   if (circleUser.vx < 0) {
     oscillator.freq(300);
