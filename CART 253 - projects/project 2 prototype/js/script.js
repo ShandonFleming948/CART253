@@ -29,9 +29,10 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+  background(52,177,235);
 
-  stroke(255);
+  stroke(0);
+  strokeWeight(10);
   for (let i = 0; i < walls.length; i++) {
     let wall = walls[i];
     line(wall.x1, wall.y1, wall.x2, wall.y2);
