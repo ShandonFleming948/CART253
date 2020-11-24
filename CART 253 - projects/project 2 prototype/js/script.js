@@ -4,7 +4,7 @@
 Shandon Fleming
 CART 253 - Project 2 "Prototype"
 **************************************************/
-let walls = [{
+let wallData = [{
     x1: 100,
     y1: 0,
     x2: 100,
@@ -153,9 +153,10 @@ let walls = [{
     y1: 200,
     x2: 900,
     y2: 400
-  },
+  },];
 
   //moving walls
+  let movingWallData = [
   {
     x1: 200,
     y1: 400,
@@ -212,17 +213,23 @@ let walls = [{
   },
 ];
 
+let walls = []
+
 function setup() {
   createCanvas(1000,600);
+
+  for (let i = 0; i < wallData.length; i++) {
+    let data = wallData[i]
+    let wall = new Wall(data.x1,data.y1,data.x2,data.y2)
+    walls.push(wall)
+  }
 }
 
 function draw() {
   background(52,177,235);
 
-  stroke(0);
-  strokeWeight(10);
   for (let i = 0; i < walls.length; i++) {
     let wall = walls[i];
-    line(wall.x1, wall.y1, wall.x2, wall.y2);
+    wall.display()
   }
 }
