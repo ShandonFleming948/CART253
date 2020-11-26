@@ -21,4 +21,35 @@ class Wall
       line(this.x1, this.y1, this.x2, this.y2);
       pop()
     }
+
+    move()
+    {
+    this.x1 = this.x1 + this.vx;
+    this.x2 = this.x2 + this.vx;
+
+    this.y1 = this.y1 + this.vy;
+    this.y2 = this.y2 + this.vy;
+    }
+
+    bounce()
+    {
+    // // Is this wall moving downward first? (positive dY)
+    if (wall.dY > 0) {
+      // Is the wall beyond the distance, or back at the starting position?
+      if (wall.y1 > wall.startY1 + wall.dY || wall.y1 < wall.startY1) {
+        // Reverse velocity
+        wall.vx = -wall.vx;
+        wall.vy = -wall.vy;
+      }
+    }
+    // // Or is it moving upward first? (negative dY)
+    else if (wall.dY < 0) {
+      // Is the wall beyond the distance, or back at the starting position?
+      if (wall.y1 < wall.startY1 + wall.dY || wall.y1 > wall.startY1) {
+        // Reverse velocity
+        wall.vx = -wall.vx;
+        wall.vy = -wall.vy;
+      }
+    }
+  }
 }
