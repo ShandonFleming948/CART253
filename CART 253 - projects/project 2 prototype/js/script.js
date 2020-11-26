@@ -406,32 +406,32 @@ function draw() {
     wall.display()
 
 
-  // move()
-  wall.x1 = wall.x1 + wall.vx;
-  wall.x2 = wall.x2 + wall.vx;
-
-  wall.y1 = wall.y1 + wall.vy;
-  wall.y2 = wall.y2 + wall.vy;
+  // // move()
+  // wall.x1 = wall.x1 + wall.vx;
+  // wall.x2 = wall.x2 + wall.vx;
+  //
+  // wall.y1 = wall.y1 + wall.vy;
+  // wall.y2 = wall.y2 + wall.vy;
 
   // // bounce()
   // // Is this wall moving downward first? (positive dY)
-  if (wall.dY > 0) {
-    // Is the wall beyond the distance, or back at the starting position?
-    if (wall.y1 > wall.startY1 + wall.dY || wall.y1 < wall.startY1) {
-      // Reverse velocity
-      wall.vx = -wall.vx;
-      wall.vy = -wall.vy;
-    }
-  }
-  // // Or is it moving upward first? (negative dY)
-  else if (wall.dY < 0) {
-    // Is the wall beyond the distance, or back at the starting position?
-    if (wall.y1 < wall.startY1 + wall.dY || wall.y1 > wall.startY1) {
-      // Reverse velocity
-      wall.vx = -wall.vx;
-      wall.vy = -wall.vy;
-    }
-  }
+  // if (wall.dY > 0) {
+  //   // Is the wall beyond the distance, or back at the starting position?
+  //   if (wall.y1 > wall.startY1 + wall.dY || wall.y1 < wall.startY1) {
+  //     // Reverse velocity
+  //     wall.vx = -wall.vx;
+  //     wall.vy = -wall.vy;
+  //   }
+  // }
+  // // // Or is it moving upward first? (negative dY)
+  // else if (wall.dY < 0) {
+  //   // Is the wall beyond the distance, or back at the starting position?
+  //   if (wall.y1 < wall.startY1 + wall.dY || wall.y1 > wall.startY1) {
+  //     // Reverse velocity
+  //     wall.vx = -wall.vx;
+  //     wall.vy = -wall.vy;
+  //   }
+  // }
 
 
 }

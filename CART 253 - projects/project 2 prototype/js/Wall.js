@@ -34,21 +34,21 @@ class Wall
     bounce()
     {
     // // Is this wall moving downward first? (positive dY)
-    if (wall.dY > 0) {
+    if (this.dY > 0) {
       // Is the wall beyond the distance, or back at the starting position?
-      if (wall.y1 > wall.startY1 + wall.dY || wall.y1 < wall.startY1) {
+      if (this.y1 > this.startY1 + this.dY || this.y1 < this.startY1) {
         // Reverse velocity
-        wall.vx = -wall.vx;
-        wall.vy = -wall.vy;
+        this.vx = -this.vx;
+        this.vy = -this.vy;
       }
     }
     // // Or is it moving upward first? (negative dY)
-    else if (wall.dY < 0) {
+    else if (this.dY < 0) {
       // Is the wall beyond the distance, or back at the starting position?
-      if (wall.y1 < wall.startY1 + wall.dY || wall.y1 > wall.startY1) {
+      if (this.y1 < this.startY1 + this.dY || this.y1 > this.startY1) {
         // Reverse velocity
-        wall.vx = -wall.vx;
-        wall.vy = -wall.vy;
+        this.vx = -this.vx;
+        this.vy = -this.vy;
       }
     }
   }
