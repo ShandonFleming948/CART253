@@ -417,6 +417,7 @@ function draw() {
     wall.display()
     wall.move()
     wall.bounce()
+    checkOverlap(wall)
   }
 }
 
@@ -448,11 +449,34 @@ function move() {
   circleUser.x = circleUser.x + circleUser.vx;
   circleUser.y = circleUser.y + circleUser.vy;
 
-  circleUser.x = constrain(circleUser.x,30,960);
+  circleUser.x = constrain(circleUser.x,30,970);
   circleUser.y = constrain(circleUser.y,30,570);
     // if (circleUser.x > 949) {
     //   circleUser.y = constrain(circleUser.y,50,550);
     // }
+}
+
+function checkOverlap(wall) {
+  if (wall.x1 - wall.x2 === 0) {
+    // Vertical line
+    if (circleUser.x + circleUser.size / 2 > wall.x1 &&
+      circleUser.x - circleUser.size / 2 < wall.x1 &&
+      circleUser.y + circleUser.size / 2 > wall.y1 &&
+      circleUser.y - circleUser.size / 2 < wall.y2) {
+      circleUser.x = circleUser.x - circleUser.vx;
+      circleUser.y = circleUser.y - circleUser.vy;
+    }
+  }
+  else if (wall.y1 - wall.y2 === 0) {
+    // Horizontal lines
+    if (circleUser.y + circleUser.size / 2 > wall.y1 &&
+      circleUser.y - circleUser.size / 2 < wall.y1 &&
+      circleUser.x + circleUser.size / 2 > wall.x1 &&
+      circleUser.x - circleUser.size / 2 < wall.x2) {
+      circleUser.x = circleUser.x - circleUser.vx;
+      circleUser.y = circleUser.y - circleUser.vy;
+    }
+  }
 }
 
 function display() {
