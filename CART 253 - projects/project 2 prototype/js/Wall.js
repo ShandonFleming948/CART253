@@ -1,11 +1,16 @@
 class Wall
 {
-    constructor(x1,y1,x2,y2)
+    constructor(config)
     {
-        this.x1 = x1;
-        this.y1 = y1;
-        this.x2 = x2;
-        this.y2 = y2;
+        this.startX1 = config.x1;
+        this.startY1 = config.y1;
+        this.x1 = config.x1;
+        this.y1 = config.y1;
+        this.x2 = config.x2;
+        this.y2 = config.y2;
+        this.dY = config.dY;
+        this.vx = config.vx;
+        this.vy = config.vy;
     }
 
     display()

@@ -276,13 +276,13 @@ let wallData = [{
     y1: 200,
     x2: 900,
     y2: 400,
-    dY: -100,
+    dY: 0,
     vx: 0,
-    vy: -1,
-  },];
+    vy: 0,
+  },
 
   //moving walls
-  let movingWallData = [
+
   {
     startX1: 100,
     startY1: 0,
@@ -391,18 +391,20 @@ function setup() {
 
   for (let i = 0; i < wallData.length; i++) {
     let data = wallData[i]
-    let wall = new Wall(data.x1,data.y1,data.x2,data.y2)
+    let wall = new Wall(data)
     walls.push(wall)
   }
 }
 
 function draw() {
   background(52,177,235);
+  console.log(walls[0].vx,walls[0].vy)
+
 
   for (let i = 0; i < walls.length; i++) {
     let wall = walls[i];
     wall.display()
-  }
+
 
   // move()
   wall.x1 = wall.x1 + wall.vx;
@@ -411,8 +413,8 @@ function draw() {
   wall.y1 = wall.y1 + wall.vy;
   wall.y2 = wall.y2 + wall.vy;
 
-  // bounce()
-  // Is this wall moving downward first? (positive dY)
+  // // bounce()
+  // // Is this wall moving downward first? (positive dY)
   if (wall.dY > 0) {
     // Is the wall beyond the distance, or back at the starting position?
     if (wall.y1 > wall.startY1 + wall.dY || wall.y1 < wall.startY1) {
@@ -421,7 +423,7 @@ function draw() {
       wall.vy = -wall.vy;
     }
   }
-  // Or is it moving upward first? (negative dY)
+  // // Or is it moving upward first? (negative dY)
   else if (wall.dY < 0) {
     // Is the wall beyond the distance, or back at the starting position?
     if (wall.y1 < wall.startY1 + wall.dY || wall.y1 > wall.startY1) {
@@ -431,8 +433,10 @@ function draw() {
     }
   }
 
+
+}
   // Draw the wall
-  stroke(255);
-  strokeWeight(10);
-  line(wall.x1, wall.y1, wall.x2, wall.y2);
+  // stroke(255);
+  // strokeWeight(10);
+  // line(wall.x1, wall.y1, wall.x2, wall.y2);
 }
