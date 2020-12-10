@@ -13,6 +13,42 @@ let circleUser = {
   speed:2
 }
 
+let food1 = {
+  x:450,
+  y:550,
+  size:10,
+  eaten:false,
+}
+
+let food2 = {
+  x:450,
+  y:550,
+  size:10,
+  eaten:false,
+}
+
+let food3 = {
+  x:450,
+  y:550,
+  size:10,
+  eaten:false,
+}
+
+let food4 = {
+  x:450,
+  y:550,
+  size:10,
+  eaten:false,
+}
+
+let food5 = {
+  x:450,
+  y:550,
+  size:10,
+  eaten:false,
+}
+
+
 let wallData = [{
     startX1: 100,
     startY1: 0,
