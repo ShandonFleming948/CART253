@@ -109,17 +109,6 @@ let redCircle6 = {
   speed:2.2
 }
 
-let wall1 = {
-    startX1: 100,
-    startY1: 0,
-    x1: 800,
-    y1: 100,
-    x2: 900,
-    y2: 100,
-    dY: 0,
-    vx: 0,
-    vy: 0,
-}
 
 let wallData = [{
     startX1: 100,
@@ -660,8 +649,10 @@ function move() {
       }
 
       if (food1.eaten,food2.eaten,food3.eaten,food4.eaten,food5.eaten,food6.eaten === true) {
-        wall1.vy = 1
+        wall.vy = 1
       }
+
+
 }
 
 function checkOverlap(wall) {
@@ -703,7 +694,6 @@ function display() {
   ellipse(redCircle6.x,redCircle6.y,redCircle6.size);
   pop();
 
-  line(wall1.x1,wall1.y1,wall1.x2,wall1.y2);
 
   fill(31,237,103);
   square(900,0,100);
