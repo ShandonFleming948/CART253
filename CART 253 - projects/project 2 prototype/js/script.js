@@ -55,6 +55,60 @@ let food6 = {
   eaten:false
 }
 
+let redCircle1 = {
+  x:150,
+  y:350,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2.2
+}
+
+let redCircle2 = {
+  x:50,
+  y:150,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:1.5
+}
+
+let redCircle3 = {
+  x:150,
+  y:150,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:1.5
+}
+
+let redCircle4 = {
+  x:450,
+  y:450,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2.2
+}
+
+let redCircle5 = {
+  x:500,
+  y:50,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:3.3
+}
+
+let redCircle6 = {
+  x:850,
+  y:150,
+  size:50,
+  vx:0,
+  vy:0,
+  speed:2.2
+}
+
 
 let wallData = [{
     startX1: 100,
@@ -365,7 +419,7 @@ let wallData = [{
     y2: 200,
     dY: 100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -376,7 +430,7 @@ let wallData = [{
     y2: 300,
     dY: -100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -387,7 +441,7 @@ let wallData = [{
     y2: 200,
     dY: 100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -398,7 +452,7 @@ let wallData = [{
     y2: 500,
     dY: -100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -409,7 +463,7 @@ let wallData = [{
     y2: 600,
     dY: 100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -420,7 +474,7 @@ let wallData = [{
     y2: 500,
     dY: -100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
   },
   {
     startX1: 100,
@@ -431,7 +485,18 @@ let wallData = [{
     y2: 600,
     dY: 100,
     vx: 0,
-    vy: -1,
+    vy: -1.5,
+  },
+  {
+    startX1: 100,
+    startY1: 0,
+    x1: 800,
+    y1: 100,
+    x2: 900,
+    y2: 100,
+    dY: 0,
+    vx: 0,
+    vy: 0,
   },
 ];
 
@@ -460,12 +525,14 @@ function draw() {
   checkFood3();
   checkFood4();
   checkFood5();
+  checkFood6();
 
   displayFood1();
   displayFood2();
   displayFood3();
   displayFood4();
   displayFood5();
+  displayFood6();
 
 
   for (let i = 0; i < walls.length; i++) {
@@ -507,6 +574,78 @@ function move() {
 
   circleUser.x = constrain(circleUser.x,30,970);
   circleUser.y = constrain(circleUser.y,30,570);
+
+  redCircle1.x = redCircle1.x + redCircle1.speed;
+  redCircle1.x = constrain(redCircle1.x,50,250);
+    if (redCircle1.x < 249) {
+      redCircle1.speed = redCircle1.speed
+    }
+    if (redCircle1.x > 249) {
+      redCircle1.speed = -redCircle1.speed
+    }
+    if (redCircle1.x < 51) {
+      redCircle1.speed = -redCircle1.speed
+    }
+
+    redCircle2.y = redCircle2.y + redCircle2.speed;
+    redCircle2.y = constrain(redCircle2.y,50,150);
+      if (redCircle2.y < 149) {
+        redCircle2.speed = redCircle2.speed
+      }
+      if (redCircle2.y > 149) {
+        redCircle2.speed = -redCircle2.speed
+      }
+      if (redCircle2.y < 51) {
+        redCircle2.speed = -redCircle2.speed
+      }
+
+      redCircle3.y = redCircle3.y + redCircle3.speed;
+    redCircle3.y = constrain(redCircle3.y,150,250);
+      if (redCircle3.y < 249) {
+        redCircle3.speed = redCircle3.speed
+      }
+      if (redCircle3.y > 249) {
+        redCircle3.speed = -redCircle3.speed
+      }
+      if (redCircle3.y < 151) {
+        redCircle3.speed = -redCircle3.speed
+      }
+
+      redCircle4.y = redCircle4.y + redCircle4.speed;
+    redCircle4.y = constrain(redCircle4.y,350,500);
+      if (redCircle4.y < 499) {
+        redCircle4.speed = redCircle4.speed
+      }
+      if (redCircle4.y > 499) {
+        redCircle4.speed = -redCircle4.speed
+      }
+      if (redCircle4.y < 351) {
+        redCircle4.speed = -redCircle4.speed
+      }
+
+      redCircle5.x = redCircle5.x + redCircle5.speed;
+    redCircle5.x = constrain(redCircle5.x,300,700);
+      if (redCircle5.x < 699) {
+        redCircle5.speed = redCircle5.speed
+      }
+      if (redCircle5.x > 699) {
+        redCircle5.speed = -redCircle5.speed
+      }
+      if (redCircle5.x < 301) {
+        redCircle5.speed = -redCircle5.speed
+      }
+
+      redCircle6.x = redCircle6.x + redCircle6.speed;
+    redCircle6.x = constrain(redCircle6.x,750,950);
+      if (redCircle6.x < 949) {
+        redCircle6.speed = redCircle6.speed
+      }
+      if (redCircle6.x > 949) {
+        redCircle6.speed = -redCircle6.speed
+      }
+      if (redCircle6.x < 751) {
+        redCircle6.speed = -redCircle6.speed
+      }
 }
 
 function checkOverlap(wall) {
@@ -536,6 +675,15 @@ function display() {
   noStroke()
   fill(250,250,250);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
+
+  noStroke()
+  fill(240,0,0);
+  ellipse(redCircle1.x,redCircle1.y,redCircle1.size);
+  ellipse(redCircle2.x,redCircle2.y,redCircle2.size);
+  ellipse(redCircle3.x,redCircle3.y,redCircle3.size);
+  ellipse(redCircle4.x,redCircle4.y,redCircle4.size);
+  ellipse(redCircle5.x,redCircle5.y,redCircle5.size);
+  ellipse(redCircle6.x,redCircle6.y,redCircle6.size);
 }
 
 function checkFood1() {
