@@ -109,6 +109,7 @@ let redCircle6 = {
   speed:2.2
 }
 
+let state = `title`; //can be title, simulation, win, lose
 
 let wallData = [{
     startX1: 100,
@@ -515,11 +516,43 @@ function setup() {
 
 function draw() {
   background(52,177,235);
-  // console.log(walls[0].vx,walls[0].vy)
 
+  //4 states
+if (state === `title`) {
+  title();
+}
+else if (state === `simulation`) {
+  simulation();
+}
+else if (state === `win`) {
+  win();
+}
+else if (state === `lose`) {
+  lose();
+}
+
+}
+
+//display title
+function title() {
+  push();
+  textSize(24);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`Pass through the maze and reach the green square without getting caught by the red circles`,width/2,height/2);
+  pop();
+}
+
+//run simulation
+function simulation() {
   handleInput();
   move();
   display();
+  checkOverlap();
+  //
+  // handleInput();
+  // move();
+  // display();
 
   checkFood1();
   checkFood2();
@@ -543,6 +576,26 @@ function draw() {
     wall.bounce()
     checkOverlap(wall)
   }
+}
+
+//display "lose" page if user touches a red circle
+function lose() {
+  push();
+  textSize(64);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`YOU GOT CAUGHT :(`,width/2,height/2);
+  pop();
+}
+
+//display "win" page if user makes it to the green square
+function win() {
+  push();
+  textSize(50);
+  fill(0,0,250);
+  textAlign(CENTER,CENTER);
+  text(`CONGRATULATIONS, YOU MADE IT :)`,width/2,height/2);
+  pop();
 }
 
 //keyboard controls for the white circle
@@ -648,12 +701,10 @@ function move() {
         redCircle6.speed = -redCircle6.speed
       }
 
-      if (food1.eaten,food2.eaten,food3.eaten,food4.eaten,food5.eaten,food6.eaten === true) {
-        wall.vy = 1
-      }
-
-
-}
+      // if (food1.eaten,food2.eaten,food3.eaten,food4.eaten,food5.eaten,food6.eaten === true){
+      //   wall.vy = 0.5
+      // }
+ }
 
 function checkOverlap(wall) {
   if (wall.x1 - wall.x2 === 0) {
@@ -676,6 +727,27 @@ function checkOverlap(wall) {
       circleUser.y = circleUser.y - circleUser.vy;
     }
   }
+
+  let d = dist(redCircle1.x,redCircle1.y,circleUser.x,circleUser.y);
+  if (d < redCircle1.size/2 + circleUser.size/2) {
+    state = `lose`;
+  }
+   d = dist(redCircle2.x,redCircle2.y,circleUser.x,circleUser.y);
+  if (d < redCircle2.size/2 + circleUser.size/2) {
+    state = `lose`;
+  }
+   d = dist(redCircle3.x,redCircle3.y,circleUser.x,circleUser.y);
+  if (d < redCircle3.size/2 + circleUser.size/2) {
+    state = `lose`;
+  }
+   d = dist(redCircle5.x,redCircle5.y,circleUser.x,circleUser.y);
+  if (d < redCircle5.size/2 + circleUser.size/2) {
+    state = `lose`;
+  }
+  d = dist(950,50,circleUser.x,circleUser.y);
+ if (d <  + circleUser.size/2) {
+   state = `win`;
+ }
 }
 
 function display() {
@@ -804,5 +876,37 @@ function displayFood6() {
     fill(252, 222, 25);
     ellipse(food6.x, food6.y, food6.size);
     pop();
+  }
+}
+
+//check if userCircle touches red circle
+// function checkOverlap() {
+//   let d = dist(redCircle1.x,redCircle1.y,circleUser.x,circleUser.y);
+//   if (d < redCircle1.size/2 + circleUser.size/2) {
+//     state = `lose`;
+//   }
+//    d = dist(redCircle2.x,redCircle2.y,circleUser.x,circleUser.y);
+//   if (d < redCircle2.size/2 + circleUser.size/2) {
+//     state = `lose`;
+//   }
+//    d = dist(redCircle3.x,redCircle3.y,circleUser.x,circleUser.y);
+//   if (d < redCircle3.size/2 + circleUser.size/2) {
+//     state = `lose`;
+//   }
+//    d = dist(redCircle5.x,redCircle5.y,circleUser.x,circleUser.y);
+//   if (d < redCircle5.size/2 + circleUser.size/2) {
+//     state = `lose`;
+//   }
+//   d = dist(950,50,circleUser.x,circleUser.y);
+//  if (d <  + circleUser.size/2) {
+//    state = `win`;
+//  }
+//
+// }
+
+//leaves title page and starts simulation
+function mousePressed() {
+  if (state ===`title`) {
+    state = `simulation`;
   }
 }
