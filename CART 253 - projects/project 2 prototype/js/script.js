@@ -681,6 +681,7 @@ function display() {
   fill(250,250,250);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
 
+  push();
   noStroke()
   fill(240,0,0);
   ellipse(redCircle1.x,redCircle1.y,redCircle1.size);
@@ -689,8 +690,13 @@ function display() {
   ellipse(redCircle4.x,redCircle4.y,redCircle4.size);
   ellipse(redCircle5.x,redCircle5.y,redCircle5.size);
   ellipse(redCircle6.x,redCircle6.y,redCircle6.size);
+  pop();
 
   line(wall1.x1,wall1.y1,wall1.x2,wall1.y2);
+
+  fill(31,237,103);
+  square(900,0,100);
+
 
   // let wall1 = {
   //     startX1: 100,
