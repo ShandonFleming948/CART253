@@ -16,36 +16,43 @@ let circleUser = {
 let food1 = {
   x:450,
   y:550,
-  size:10,
-  eaten:false,
+  size:20,
+  eaten:false
 }
 
 let food2 = {
   x:350,
   y:350,
-  size:10,
-  eaten:false,
+  size:20,
+  eaten:false
 }
 
 let food3 = {
   x:950,
   y:550,
-  size:10,
-  eaten:false,
+  size:20,
+  eaten:false
 }
 
 let food4 = {
   x:50,
   y:250,
-  size:10,
-  eaten:false,
+  size:20,
+  eaten:false
 }
 
 let food5 = {
   x:450,
   y:50,
-  size:10,
-  eaten:false,
+  size:20,
+  eaten:false
+}
+
+let food6 = {
+  x:550,
+  y:250,
+  size:20,
+  eaten:false
 }
 
 
@@ -448,6 +455,19 @@ function draw() {
   move();
   display();
 
+  checkFood1();
+  checkFood2();
+  checkFood3();
+  checkFood4();
+  checkFood5();
+
+  displayFood1();
+  displayFood2();
+  displayFood3();
+  displayFood4();
+  displayFood5();
+
+
   for (let i = 0; i < walls.length; i++) {
     let wall = walls[i];
     wall.display()
@@ -487,9 +507,6 @@ function move() {
 
   circleUser.x = constrain(circleUser.x,30,970);
   circleUser.y = constrain(circleUser.y,30,570);
-    // if (circleUser.x > 949) {
-    //   circleUser.y = constrain(circleUser.y,50,550);
-    // }
 }
 
 function checkOverlap(wall) {
@@ -519,4 +536,112 @@ function display() {
   noStroke()
   fill(250,250,250);
   ellipse(circleUser.x,circleUser.y,circleUser.size);
+}
+
+function checkFood1() {
+  if (!food1.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food1.x, food1.y);
+    if (d < circleUser.size / 2 + food1.size / 2) {
+      food1.eaten = true;
+    }
+  }
+}
+
+function checkFood2() {
+  if (!food2.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food2.x, food2.y);
+    if (d < circleUser.size / 2 + food2.size / 2) {
+      food2.eaten = true;
+    }
+  }
+}
+
+function checkFood3() {
+  if (!food3.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food3.x, food3.y);
+    if (d < circleUser.size / 2 + food3.size / 2) {
+      food3.eaten = true;
+    }
+  }
+}
+
+function checkFood4() {
+  if (!food4.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food4.x, food4.y);
+    if (d < circleUser.size / 2 + food4.size / 2) {
+      food4.eaten = true;
+    }
+  }
+}
+
+function checkFood5() {
+  if (!food5.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food5.x, food5.y);
+    if (d < circleUser.size / 2 + food5.size / 2) {
+      food5.eaten = true;
+    }
+  }
+}
+
+function checkFood6() {
+  if (!food6.eaten) {
+    let d = dist(circleUser.x, circleUser.y, food6.x, food6.y);
+    if (d < circleUser.size / 2 + food6.size / 2) {
+      food6.eaten = true;
+    }
+  }
+}
+
+function displayFood1() {
+  if (!food1.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food1.x, food1.y, food1.size);
+    pop();
+  }
+}
+
+function displayFood2() {
+  if (!food2.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food2.x, food2.y, food2.size);
+    pop();
+  }
+}
+
+function displayFood3() {
+  if (!food3.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food3.x, food3.y, food3.size);
+    pop();
+  }
+}
+
+function displayFood4() {
+  if (!food4.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food4.x, food4.y, food4.size);
+    pop();
+  }
+}
+
+function displayFood5() {
+  if (!food5.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food5.x, food5.y, food5.size);
+    pop();
+  }
+}
+
+function displayFood6() {
+  if (!food6.eaten) {
+    push();
+    fill(252, 222, 25);
+    ellipse(food6.x, food6.y, food6.size);
+    pop();
+  }
 }
