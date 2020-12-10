@@ -109,6 +109,17 @@ let redCircle6 = {
   speed:2.2
 }
 
+let wall1 = {
+    startX1: 100,
+    startY1: 0,
+    x1: 800,
+    y1: 100,
+    x2: 900,
+    y2: 100,
+    dY: 0,
+    vx: 0,
+    vy: 0,
+}
 
 let wallData = [{
     startX1: 100,
@@ -487,17 +498,7 @@ let wallData = [{
     vx: 0,
     vy: -1.5,
   },
-  {
-    startX1: 100,
-    startY1: 0,
-    x1: 800,
-    y1: 100,
-    x2: 900,
-    y2: 100,
-    dY: 0,
-    vx: 0,
-    vy: 0,
-  },
+
 ];
 
 let walls = []
@@ -646,6 +647,10 @@ function move() {
       if (redCircle6.x < 751) {
         redCircle6.speed = -redCircle6.speed
       }
+
+      if (food1.eaten,food2.eaten,food3.eaten,food4.eaten,food5.eaten,food6.eaten === true) {
+        wall1.vy = 1
+      }
 }
 
 function checkOverlap(wall) {
@@ -684,6 +689,20 @@ function display() {
   ellipse(redCircle4.x,redCircle4.y,redCircle4.size);
   ellipse(redCircle5.x,redCircle5.y,redCircle5.size);
   ellipse(redCircle6.x,redCircle6.y,redCircle6.size);
+
+  line(wall1.x1,wall1.y1,wall1.x2,wall1.y2);
+
+  // let wall1 = {
+  //     startX1: 100,
+  //     startY1: 0,
+  //     x1: 800,
+  //     y1: 100,
+  //     x2: 900,
+  //     y2: 100,
+  //     dY: 0,
+  //     vx: 0,
+  //     vy: 0,
+  // }
 }
 
 function checkFood1() {
