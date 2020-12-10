@@ -498,6 +498,17 @@ let wallData = [{
     vx: 0,
     vy: -1.5,
   },
+  {
+    startX1: 100,
+    startY1: 0,
+    x1: 800,
+    y1: 100,
+    x2: 900,
+    y2: 100,
+    dY: -100,
+    vx: 0,
+    vy: -4.5,
+  }
 
 ];
 
@@ -696,19 +707,6 @@ function display() {
 
   fill(31,237,103);
   square(900,0,100);
-
-
-  // let wall1 = {
-  //     startX1: 100,
-  //     startY1: 0,
-  //     x1: 800,
-  //     y1: 100,
-  //     x2: 900,
-  //     y2: 100,
-  //     dY: 0,
-  //     vx: 0,
-  //     vy: 0,
-  // }
 }
 
 function checkFood1() {
