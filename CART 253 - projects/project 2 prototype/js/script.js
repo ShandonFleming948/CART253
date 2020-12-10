@@ -55,6 +55,8 @@ let food6 = {
   eaten:false
 }
 
+let allFoodEaten = false;
+
 let redCircle1 = {
   x:150,
   y:350,
@@ -536,10 +538,10 @@ else if (state === `lose`) {
 //display title
 function title() {
   push();
-  textSize(24);
+  textSize(15);
   fill(0,0,250);
   textAlign(CENTER,CENTER);
-  text(`Pass through the maze and reach the green square without getting caught by the red circles`,width/2,height/2);
+  text(`Pass through the maze, collect all the golden apples, and make it to the green square without getting caught by the red circles or touching the walls.`,width/2,height/2);
   pop();
 }
 
@@ -548,7 +550,6 @@ function simulation() {
   handleInput();
   move();
   display();
-  checkOverlap();
   //
   // handleInput();
   // move();
@@ -584,7 +585,7 @@ function lose() {
   textSize(64);
   fill(0,0,250);
   textAlign(CENTER,CENTER);
-  text(`YOU GOT CAUGHT :(`,width/2,height/2);
+  text(`YOU LOST :(`,width/2,height/2);
   pop();
 }
 
@@ -701,9 +702,15 @@ function move() {
         redCircle6.speed = -redCircle6.speed
       }
 
-      // if (food1.eaten,food2.eaten,food3.eaten,food4.eaten,food5.eaten,food6.eaten === true){
-      //   wall.vy = 0.5
-      // }
+      if (!allFoodEaten && food1.eaten && food2.eaten && food3.eaten && food4.eaten && food5.eaten && food6.eaten){
+        allFoodEaten = true;
+        for (let i = 0; i < walls.length; i++) {
+          let wall = walls[i];
+          if (wall.vy !== 0) {
+              wall.vy = 0.5
+        }
+      }
+    }
  }
 
 function checkOverlap(wall) {
@@ -713,8 +720,7 @@ function checkOverlap(wall) {
       circleUser.x - circleUser.size / 2 < wall.x1 &&
       circleUser.y + circleUser.size / 2 > wall.y1 &&
       circleUser.y - circleUser.size / 2 < wall.y2) {
-      circleUser.x = circleUser.x - circleUser.vx;
-      circleUser.y = circleUser.y - circleUser.vy;
+      state = `lose`;
     }
   }
   else if (wall.y1 - wall.y2 === 0) {
@@ -723,8 +729,7 @@ function checkOverlap(wall) {
       circleUser.y - circleUser.size / 2 < wall.y1 &&
       circleUser.x + circleUser.size / 2 > wall.x1 &&
       circleUser.x - circleUser.size / 2 < wall.x2) {
-      circleUser.x = circleUser.x - circleUser.vx;
-      circleUser.y = circleUser.y - circleUser.vy;
+      state = `lose`;
     }
   }
 
@@ -878,31 +883,6 @@ function displayFood6() {
     pop();
   }
 }
-
-//check if userCircle touches red circle
-// function checkOverlap() {
-//   let d = dist(redCircle1.x,redCircle1.y,circleUser.x,circleUser.y);
-//   if (d < redCircle1.size/2 + circleUser.size/2) {
-//     state = `lose`;
-//   }
-//    d = dist(redCircle2.x,redCircle2.y,circleUser.x,circleUser.y);
-//   if (d < redCircle2.size/2 + circleUser.size/2) {
-//     state = `lose`;
-//   }
-//    d = dist(redCircle3.x,redCircle3.y,circleUser.x,circleUser.y);
-//   if (d < redCircle3.size/2 + circleUser.size/2) {
-//     state = `lose`;
-//   }
-//    d = dist(redCircle5.x,redCircle5.y,circleUser.x,circleUser.y);
-//   if (d < redCircle5.size/2 + circleUser.size/2) {
-//     state = `lose`;
-//   }
-//   d = dist(950,50,circleUser.x,circleUser.y);
-//  if (d <  + circleUser.size/2) {
-//    state = `win`;
-//  }
-//
-// }
 
 //leaves title page and starts simulation
 function mousePressed() {
