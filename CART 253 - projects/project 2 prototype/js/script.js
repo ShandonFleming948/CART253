@@ -21,29 +21,29 @@ let food1 = {
 }
 
 let food2 = {
-  x:450,
-  y:550,
+  x:350,
+  y:350,
   size:10,
   eaten:false,
 }
 
 let food3 = {
-  x:450,
+  x:950,
   y:550,
   size:10,
   eaten:false,
 }
 
 let food4 = {
-  x:450,
-  y:550,
+  x:50,
+  y:250,
   size:10,
   eaten:false,
 }
 
 let food5 = {
   x:450,
-  y:550,
+  y:50,
   size:10,
   eaten:false,
 }
