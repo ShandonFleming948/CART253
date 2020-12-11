@@ -1,8 +1,8 @@
 # Exercise 8: Reflection
 
 Shandon Fleming
-Pippin Barr
-CART 253-A
+-Pippin Barr
+-CART 253-A
 
   Prior to CART 253, my only experience with programming of any sort was through
 interactive games on code academy. I can’t even recall whether I was coding in javascript, html,
