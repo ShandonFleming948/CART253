@@ -4,6 +4,7 @@
 Shandon Fleming
 CART 253 - Project 2
 **************************************************/
+//white circle that the user controls with the arrow keys
 let circleUser = {
   x:50,
   y:550,
@@ -13,6 +14,7 @@ let circleUser = {
   speed:2
 }
 
+//the 6 golden apples
 let food1 = {
   x:450,
   y:550,
@@ -57,6 +59,7 @@ let food6 = {
 
 let allFoodEaten = false;
 
+//the 6 red circles that the user has to avoid
 let redCircle1 = {
   x:150,
   y:350,
@@ -113,6 +116,7 @@ let redCircle6 = {
 
 let state = `title`; //can be title, simulation, win, lose
 
+//the walls of the maze
 let wallData = [{
     startX1: 100,
     startY1: 0,
@@ -519,7 +523,7 @@ function setup() {
 function draw() {
   background(52,177,235);
 
-  //4 states
+  //4 states that the user sees
 if (state === `title`) {
   title();
 }
@@ -550,10 +554,6 @@ function simulation() {
   handleInput();
   move();
   display();
-  //
-  // handleInput();
-  // move();
-  // display();
 
   checkFood1();
   checkFood2();
@@ -579,7 +579,7 @@ function simulation() {
   }
 }
 
-//display "lose" page if user touches a red circle
+//display "lose" page if user touches a red circle or one of the walls
 function lose() {
   push();
   textSize(64);
@@ -622,7 +622,7 @@ function handleInput() {
   }
 }
 
-//circles movement
+// movement of the white circle and the red circles
 function move() {
   circleUser.x = circleUser.x + circleUser.vx;
   circleUser.y = circleUser.y + circleUser.vy;
@@ -713,9 +713,10 @@ function move() {
     }
  }
 
+//check if the user makes contact with the walls of the maze
 function checkOverlap(wall) {
   if (wall.x1 - wall.x2 === 0) {
-    // Vertical line
+    // contact with Vertical lines
     if (circleUser.x + circleUser.size / 2 > wall.x1 &&
       circleUser.x - circleUser.size / 2 < wall.x1 &&
       circleUser.y + circleUser.size / 2 > wall.y1 &&
@@ -724,7 +725,7 @@ function checkOverlap(wall) {
     }
   }
   else if (wall.y1 - wall.y2 === 0) {
-    // Horizontal lines
+    // contact with Horizontal lines
     if (circleUser.y + circleUser.size / 2 > wall.y1 &&
       circleUser.y - circleUser.size / 2 < wall.y1 &&
       circleUser.x + circleUser.size / 2 > wall.x1 &&
@@ -733,6 +734,7 @@ function checkOverlap(wall) {
     }
   }
 
+//set up for state outcomes
   let d = dist(redCircle1.x,redCircle1.y,circleUser.x,circleUser.y);
   if (d < redCircle1.size/2 + circleUser.size/2) {
     state = `lose`;
@@ -755,6 +757,7 @@ function checkOverlap(wall) {
  }
 }
 
+//displays the user circle, the red circles, and the "finish square"
 function display() {
   noStroke()
   fill(250,250,250);
@@ -776,6 +779,7 @@ function display() {
   square(900,0,100);
 }
 
+//checks if the golden apple has been eaten
 function checkFood1() {
   if (!food1.eaten) {
     let d = dist(circleUser.x, circleUser.y, food1.x, food1.y);
@@ -785,6 +789,7 @@ function checkFood1() {
   }
 }
 
+//checks if the golden apple has been eaten
 function checkFood2() {
   if (!food2.eaten) {
     let d = dist(circleUser.x, circleUser.y, food2.x, food2.y);
@@ -794,6 +799,7 @@ function checkFood2() {
   }
 }
 
+//checks if the golden apple has been eaten
 function checkFood3() {
   if (!food3.eaten) {
     let d = dist(circleUser.x, circleUser.y, food3.x, food3.y);
@@ -803,6 +809,7 @@ function checkFood3() {
   }
 }
 
+//checks if the golden apple has been eaten
 function checkFood4() {
   if (!food4.eaten) {
     let d = dist(circleUser.x, circleUser.y, food4.x, food4.y);
@@ -812,6 +819,7 @@ function checkFood4() {
   }
 }
 
+//checks if the golden apple has been eaten
 function checkFood5() {
   if (!food5.eaten) {
     let d = dist(circleUser.x, circleUser.y, food5.x, food5.y);
@@ -821,6 +829,7 @@ function checkFood5() {
   }
 }
 
+//checks if the golden apple has been eaten
 function checkFood6() {
   if (!food6.eaten) {
     let d = dist(circleUser.x, circleUser.y, food6.x, food6.y);
@@ -830,6 +839,7 @@ function checkFood6() {
   }
 }
 
+//displays the golden apple
 function displayFood1() {
   if (!food1.eaten) {
     push();
@@ -839,6 +849,7 @@ function displayFood1() {
   }
 }
 
+//displays the golden apple
 function displayFood2() {
   if (!food2.eaten) {
     push();
@@ -848,6 +859,7 @@ function displayFood2() {
   }
 }
 
+//displays the golden apple
 function displayFood3() {
   if (!food3.eaten) {
     push();
@@ -857,6 +869,7 @@ function displayFood3() {
   }
 }
 
+//displays the golden apple
 function displayFood4() {
   if (!food4.eaten) {
     push();
@@ -866,6 +879,7 @@ function displayFood4() {
   }
 }
 
+//displays the golden apple
 function displayFood5() {
   if (!food5.eaten) {
     push();
@@ -875,6 +889,7 @@ function displayFood5() {
   }
 }
 
+//displays the golden apple
 function displayFood6() {
   if (!food6.eaten) {
     push();
