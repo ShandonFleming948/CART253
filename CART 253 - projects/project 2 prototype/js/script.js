@@ -3,7 +3,7 @@
 /**************************************************
 Shandon Fleming
 CART 253 - Project 2
--the code below displays a maze with moving walls that
+-this code displays a maze with moving walls that
 the user has to make their way through by collecting a series
 of golden apples whilst dodging red circles and avoiding contact
 with the walls
